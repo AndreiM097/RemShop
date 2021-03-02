@@ -135,6 +135,7 @@ public class LoginController {
 
         String[] productNames = {"IPSA Piston", "12V", "Castrol", "Michellin 205/55/R15", "ABS Sensor", "Autofiletanta"};
         String[] descriptions = {"Golf MK4 1.8T Piston" , "12V Battery", "15W40 Semi-synthetic oil", "Cauciucuri Michellin", "Vw Golf mk4/Bora abs sensor","Masina electrica de insurubat"};
+        String[] productImageLocations = {"piston.png", "piston.png", "oil.png", "tires.jpg", "sensors.jpg", "turbocharger.jpg" };
         String[] manufacturers = {"Siemens", "Rombat", "Castrol", "Michellin", "VAG", "Snap-On"};
         String[] categories = {"Car Parts", "Batteries", "Oils", "Tires", "Sensors", "Tools"};
 
@@ -143,6 +144,7 @@ public class LoginController {
             product.setName(productNames[i]);
             product.setCategory(categories[i]);
             product.setDescription(descriptions[i]);
+            product.setPictureLocation(productImageLocations[i]);
             product.setManufacturer(manufacturers[i]);
             product.setPrice(10.55 + i);
 

@@ -6,79 +6,80 @@
     <meta charset="utf-8">
     <title>RemShop</title>
     <div th:replace="fragments/header :: header-css"/>
+    <link rel="stylesheet" href="main.css">
 
 </head>
 <body class="d-flex flex-column" style="min-height:100vh;">
 
-
 <div th:replace="fragments/header :: header"/>
+<div class="cpr" style="background-image:url(https://previews.123rf.com/images/a7880s/a7880s1406/a7880s140600037/29386029-car-service-and-some-types-of-transportation-background-.jpg)";>
+    <br><br>
+    <div class = "container flex-fill shadow-lg p-3 mb-5 " style="background-color: rgba(255, 255, 255, 0.95);; border-radius:25px;overflow:hidden;">
+        <div class="container flex-fill shadow-none p-3 mb-6">
+            <div sec:authorize="isAuthenticated()" style="color:white;">
+                <div class="container">
 
-<div class="container flex-fill shadow-lg p-3 mb-6  bg-white rounded" >
-    <div sec:authorize="isAuthenticated()">
-        <div class="container">
-
-        </div>
-        <form id="logoutForm" method="POST" th:action="@{/logout}">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        </form>
-
-        <h2>Welcome <span sec:authentication="name">Welcome</span></h2>
-        <br>
-
-    </div>
-
-
-    <div class="card-group">
-        <div class="card">
-            <a th:href="@{/CarParts}"> <img th:src="@{/images/parts.jpg}" alt="..."></a>
-            <div class="card-body">
-                <h5 class="card-title">Car Parts</h5>
-            </div>
-        </div>
-        <div class="card">
-            <a th:href="@{/Batteries}"> <img th:src="@{/images/battery.jpg}" alt="..."></a>
-                <div class="card-body">
-                    <h5 class="card-title">Batteries</h5>
                 </div>
-        </div>
-        <div class="card">
-            <a th:href="@{/Oil}"> <img th:src="@{/images/oil.jpg}" alt="..."></a>
-            <div class="card-body">
-                <h5 class="card-title">Engine Oil</h5>
+                <form id="logoutForm" method="POST" th:action="@{/logout}">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                </form>
+
+                <h2>Welcome <span sec:authentication="name">Welcome</span></h2>
+                <br>
+
             </div>
+
+
+            <div class="card-group">
+                <div class="card card shadow-lg" style="border-radius:10px;overflow:hidden;">
+                    <a th:href="@{/CarParts}"> <img th:src="@{/images/parts.jpg}" alt="..."></a>
+                    <div class="card-body">
+                        <a th:href="@{/CarParts}"><h5 class="card-title" style="text-align: center; color:black">Car Parts</h5></a>
+                    </div>
+                </div>
+                <div class="card card shadow-lg" style="border-radius:10px;overflow:hidden;">
+                    <a th:href="@{/Batteries}"> <img th:src="@{/images/battery.jpg}" alt="..."></a>
+                    <div class="card-body">
+                        <a th:href="@{/Batteries}"><h5 class="card-title" style="text-align: center; color:black">Batteries</h5></a>
+                    </div>
+                </div>
+                <div class="card card shadow-lg" style="border-radius:10px;overflow:hidden;">
+                    <a th:href="@{/Oil}"> <img th:src="@{/images/oil.jpg}" alt="..."></a>
+                    <div class="card-body">
+                        <a th:href="@{/Oil}"><h5 class="card-title" style="text-align: center; color:black">Engine Oil</h5></a>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+            <div class="card-group">
+                <div class="card card shadow-lg" style="border-radius:10px;overflow:hidden;">
+                    <a th:href="@{/Tires}"> <img th:src="@{/images/tires.jpg}" alt="..."></a>
+                    <div class="card-body">
+                        <a th:href="@{/Tires}"><h5 class="card-title" style="text-align: center; color:black">Tires</h5></a>
+                    </div>
+                </div>
+                <div class="card card shadow-lg" style="border-radius:10px;overflow:hidden;">
+                    <a th:href="@{/Sensors}"> <img th:src="@{/images/sensors.jpg}" alt="..."></a>
+                    <div class="card-body">
+                        <a th:href="@{/Sensors}"><h5 class="card-title" style="text-align: center; color:black">Sensors</h5></a>
+                    </div>
+                </div>
+                <div class="card card shadow-lg" style="border-radius:10px;overflow:hidden;">
+                    <a th:href="@{/Tools}"> <img th:src="@{/images/tools.jpg}" alt="..."></a>
+                    <div class="card-body">
+                        <a th:href="@{/Tools}"><h5 class="card-title" style="text-align: center; color:black">Tools</h5></a>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <a th:href="@{/userList}" class="btn btn-primary btn-sm" role="button">Users page</a>
         </div>
     </div>
-
-    <br><br>
-
-    <div class="card-group">
-        <div class="card">
-            <a th:href="@{/Tires}"> <img th:src="@{/images/tires.jpg}" alt="..."></a>
-            <div class="card-body">
-                <h5 class="card-title">Tires</h5>
-            </div>
-        </div>
-        <div class="card">
-            <a th:href="@{/Sensors}"> <img th:src="@{/images/sensors.jpg}" alt="..."></a>
-            <div class="card-body">
-                <h5 class="card-title">Sensors</h5>
-            </div>
-        </div>
-        <div class="card">
-            <a th:href="@{/Tools}"> <img th:src="@{/images/oil.jpg}" alt="..."></a>
-            <div class="card-body">
-                <h5 class="card-title">Tools</h5>
-            </div>
-        </div>
-    </div>
-
-    <br><br>
-    <a th:href="@{/search}" class="btn btn-primary btn-sm" role="button">Go to products page</a>
-    <br><br>
-    <a th:href="@{/userList}" class="btn btn-primary btn-sm" role="button">Go to users page(only as admin)</a>
-    
 </div>
- <h3>Could add recommended products with thymeleaf on the sides (add carousels on sides)</h3>
+
+<div th:replace="fragments/footer :: footer"/>
+
 <script src = "https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity = "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin = "anonymous">

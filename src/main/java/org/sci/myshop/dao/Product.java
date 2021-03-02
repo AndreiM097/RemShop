@@ -18,6 +18,8 @@ public class Product {
 
     public String manufacturer;
 
+    public String pictureLocation;
+
     public double price;
 
    public long getProductId() {
@@ -56,7 +58,15 @@ public class Product {
       return manufacturer;
    }
 
-   public void setManufacturer(String manufacturer) {
+    public String getPictureLocation() {
+        return pictureLocation;
+    }
+
+    public void setPictureLocation(String pictureLocation) {
+        this.pictureLocation = pictureLocation;
+    }
+
+    public void setManufacturer(String manufacturer) {
       this.manufacturer = manufacturer;
    }
 
