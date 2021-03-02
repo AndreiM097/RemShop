@@ -4,7 +4,7 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="utf-8">
-    <title>RemShop-Car Parts</title>
+    <title>RemShop-Sensors</title>
     <div th:replace="fragments/header :: header-css"/>
 
 </head>
@@ -15,21 +15,40 @@
 
 <div class="container flex-fill shadow-lg p-3 mb-5  bg-white rounded" >
     <h2>Welcome <span sec:authentication="name">Welcome</span></h2>
+    <div class="container">
+        <h3>Car sensors: </h3>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-light">
+            <tr>
+                <th>#</th>
 
-    <div class="card mb-3" style="max-width: 95%; left:2%;"  th:each="aProduct : ${listProducts}">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img th:src="@{/images/tools.jpg}">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title" th:text = "${aProduct.name}" >Card title</h5>
-                    <p class="card-text" th:text = "${aProduct.price}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text" ><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
+                <th sec:authorize="hasAuthority('ADMIN')" >Actions</th>
+
+                <th>Product name</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Manufacturer</th>
+                <th>Price</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="aProduct: ${listProducts}">
+                <td th:text="${aProduct.productId}" />
+
+                <td sec:authorize="hasAuthority('ADMIN')">E.D.V</td>
+
+                <td th:text="${aProduct.name}" />
+                <td th:text="${aProduct.category}" />
+                <td th:text="${aProduct.description}" />
+                <td th:text="${aProduct.manufacturer}" />
+                <td th:text="${aProduct.price}" />
+
+            </tr>
+            </tbody>
+        </table>
     </div>
+
 
 </div>
 
