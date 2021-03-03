@@ -9,3 +9,5 @@ o
 -src/main/java/org/sci/myshop/dao/Product.java,2\9\2930e9a6e6e0ed39f9dabfb4c1e5f68905f10b4d
 l
 <src/main/java/org/sci/myshop/controller/LoginController.java,e\c\ec9b38d7b63d769b8b832582cbd7291ed0e73e70
+n
+>src/main/java/org/sci/myshop/config/SecurityConfiguration.java,3\4\3463e7dca097740d822d20c0aee9484770b9c9bb

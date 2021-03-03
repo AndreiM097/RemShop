@@ -133,30 +133,14 @@ public class LoginController {
 
     private void initProductsData(){
 
-        String[] productNames = {"IPSA Piston", "12V", "Castrol", "Michellin 205/55/R15", "ABS Sensor", "Autofiletanta"};
-        String[] descriptions = {"Golf MK4 1.8T Piston" , "12V Battery", "15W40 Semi-synthetic oil", "Cauciucuri Michellin", "Vw Golf mk4/Bora abs sensor","Masina electrica de insurubat"};
-        String[] productImageLocations = {"piston.png", "piston.png", "oil.png", "tires.jpg", "sensors.jpg", "turbocharger.jpg" };
-        String[] manufacturers = {"Siemens", "Rombat", "Castrol", "Michellin", "VAG", "Snap-On"};
-        String[] categories = {"Car Parts", "Batteries", "Oils", "Tires", "Sensors", "Tools"};
-
-        for (int i = 0; i<productNames.length; i++){
-            Product product = new Product();
-            product.setName(productNames[i]);
-            product.setCategory(categories[i]);
-            product.setDescription(descriptions[i]);
-            product.setPictureLocation(productImageLocations[i]);
-            product.setManufacturer(manufacturers[i]);
-            product.setPrice(10.55 + i);
-
-            productService.save(product);
-        }
-
-        String[] carPartsProductNames = {"Planetara stanga ","Planetara dreapta","EGR", "Turbina", "Ax cu came"};
-        String[] carPartsManufacturers = {"BMW", "Audi", "Volkswagen", "Volkswagen", "Dacia"};
+        String[] carPartsProductNames = {"Piston","Planetara stanga","Planetara dreapta", "EGR", "Turbina", "Ax cu came", "Vibrochen"};
+        String[] productImageLocations = {"piston.png", "leftShaft.jpg", "rightShaft.jpg", "egr.jpg", "turbocharger.jpg", "camshaft.jpg"};
+        String[] carPartsManufacturers = {"BMW", "Audi", "Volkswagen", "Volkswagen", "Dacia", "Opel"};
         for (int i = 0; i<carPartsManufacturers.length; i++){
             Product product = new Product();
             product.setName(carPartsProductNames[i]);
             product.setCategory("Car Parts");
+            product.setPictureLocation(productImageLocations[i]);
             product.setDescription("Descriere exemplu");
             product.setManufacturer(carPartsManufacturers[i]);
             product.setPrice(20.55 + i);

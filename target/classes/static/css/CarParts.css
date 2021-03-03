@@ -1,0 +1,12 @@
+.card mb-3 shadow-lg{
+max-width: 95%;
+left:2%;
+border-radius:10px;
+overflow:hidden;
+
+}
+
+.card mb-3 shadow-lg:hover{
+transition:0.5s;
+background-image: linear-gradient(to left, rgb(255,215,0,0.3), white);
+}

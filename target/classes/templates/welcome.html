@@ -24,7 +24,7 @@
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 </form>
 
-                <h2>Welcome <span sec:authentication="name">Welcome</span></h2>
+                <h2 style="color:black">Welcome <span sec:authentication="name" style="color:black">Welcome</span></h2>
                 <br>
 
             </div>
@@ -72,8 +72,7 @@
                     </div>
                 </div>
             </div>
-            <br><br>
-            <a th:href="@{/userList}" class="btn btn-primary btn-sm" role="button">Users page</a>
+            <br>
         </div>
     </div>
 </div>

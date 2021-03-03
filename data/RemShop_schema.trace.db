@@ -246,3 +246,6 @@ Caused by: java.nio.channels.OverlappingFileLockException
 2021-03-01 01:24:42 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM REMSHOP.PRODUCTS REMSHOP.[*]USER"; SQL statement:
 SELECT * FROM REMSHOP.PRODUCTS REMSHOP.USER [42000-200]
+2021-03-02 21:45:43 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found; SQL statement:
+select product0_.product_id as product_1_0_, product0_.category as category2_0_, product0_.description as descript3_0_, product0_.manufacturer as manufact4_0_, product0_.name as name5_0_, product0_.picture_location as picture_6_0_, product0_.price as price7_0_ from products product0_ where (product0_.name||' '||product0_.category||' '||product0_.description||' '||product0_.manufacturer||' '||product0_.price) like ? [42102-200]

@@ -31,7 +31,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="aUser: ${listOfProducts}">
+                <tr th:each="aUser: ${listOfUsers}">
                     <td th:text="${aUser.id}" />
 
                     <td sec:authorize="hasAuthority('ADMIN')">E.D.V</td>

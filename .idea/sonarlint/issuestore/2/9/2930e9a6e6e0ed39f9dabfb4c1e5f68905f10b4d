@@ -1,13 +1,13 @@
 
-g
-java:S1104"QMake price a static final constant or non-public and provide accessors if needed.(¢ì­ 
-s
-java:S1104"XMake manufacturer a static final constant or non-public and provide accessors if needed.(¯ÃíÙûÿÿÿÿ
-f
-java:S1104"PMake name a static final constant or non-public and provide accessors if needed.( þÍ¾
-r
-java:S1104"WMake description a static final constant or non-public and provide accessors if needed.(¹ÿ†ðÿÿÿÿÿ
-i
-java:S1104"TMake category a static final constant or non-public and provide accessors if needed.(¯™°Z
 v
 java:S1104"[Make pictureLocation a static final constant or non-public and provide accessors if needed.(þ¤68¾Äð–ÿ.
+r
+java:S1104"WMake description a static final constant or non-public and provide accessors if needed.(¹ÿ†ðÿÿÿÿÿ
+f
+java:S1104"PMake name a static final constant or non-public and provide accessors if needed.( þÍ¾
+i
+java:S1104"TMake category a static final constant or non-public and provide accessors if needed.(¯™°Z
+s
+java:S1104"XMake manufacturer a static final constant or non-public and provide accessors if needed.(¯ÃíÙûÿÿÿÿ
+g
+java:S1104"QMake price a static final constant or non-public and provide accessors if needed.(¢ì­ 

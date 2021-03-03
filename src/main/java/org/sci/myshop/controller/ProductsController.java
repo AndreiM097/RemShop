@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.ServletContext;
 import java.util.List;
 
 @Controller
@@ -19,6 +20,9 @@ public class ProductsController {
 
     @Autowired
     private ProductServiceImpl productService;
+
+    @Autowired
+    private ServletContext servletContext;
 
     @RequestMapping("/SearchResults")
     public String viewHomePage(Model model, @Param("keyword") String keyword) {
