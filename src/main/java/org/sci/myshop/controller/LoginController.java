@@ -81,14 +81,6 @@ public class LoginController {
             return "welcome";
         }
 
-    @GetMapping("/userList")
-    public String getUserList(Model model){
-        List<User> list = userService.findAllUsers();
-        model.addAttribute("listOfUsers",list);
-
-        return "userList";
-    }
-
     private void initUsersData(){
         List<Role> roles = new ArrayList<>();
         Role adminRole =new Role();
@@ -140,7 +132,7 @@ public class LoginController {
             Product product = new Product();
             product.setName(carPartsProductNames[i]);
             product.setCategory("Car Parts");
-            product.setPictureLocation(productImageLocations[i]);
+            product.setPictureLocation(i + ".jpg");
             product.setDescription("Descriere exemplu");
             product.setManufacturer(carPartsManufacturers[i]);
             product.setPrice(20.55 + i);
@@ -162,6 +154,67 @@ public class LoginController {
                 battery.setPrice(20.55 + j);
 
                 productService.save(battery);
+        }
+
+        String[] oilProductNames = {"Turbo Diesel 5W40","SYNT RSI 5W40","Tec 4100 5W40", "LONG LIFE 5W30", "Ecology 5W30", "700 STI 10W-40", "SuperDiesel 10w40"};
+        String[] oilProductManufacturers = {"Castrol","Rowe","Liqui Moly", "Repsol", "Kennol", "Elf", "Hexol"};
+
+        for (int k = 0; k<oilProductNames.length; k++){
+            Product oil = new Product();
+            oil.setName(oilProductNames[k]);
+            oil.setCategory("Oil");
+            oil.setPictureLocation(k + ".jpg");
+            oil.setDescription("Descriere exemplu");
+            oil.setManufacturer(oilProductManufacturers[k]);
+            oil.setPrice(20.55 + k);
+
+            productService.save(oil);
+        }
+
+        String[] tiresProductNames = {"ECOCONTACT 225/45R17","CrossClimate 205/5 R16","Cinturato 205/55 R16", "Ventus Prime 205/55 R16", "T005 205/55 R16", "91H 195/65 R16", "Wetproof 195/65 R16"};
+        String[] tiresProductManufacturers = {"Continental","Michelin","Pireli", "Hankook", "Bridgestone", "Goodyear", "NOKIAN"};
+
+        for (int l = 0; l<tiresProductNames.length; l++){
+            Product tires = new Product();
+            tires.setName(tiresProductNames[l]);
+            tires.setCategory("Tires");
+            tires.setPictureLocation(l + ".jpg");
+            tires.setDescription("Descriere exemplu");
+            tires.setManufacturer(tiresProductManufacturers[l]);
+            tires.setPrice(20.55 + l);
+
+            productService.save(tires);
+        }
+
+        String[] toolsProductNames = {"Surubelnita YT-28015","Cric auto hidraulic","Ventuza pentru sticla D-117", "Canistra pentru ulei 8L", "Trusa profesionala auto", "Separator etrier frana cu clichet", "Cheie schimb filtru ulei cu lant"};
+        String[] toolsImageLocations = {"piston.png", "leftShaft.jpg", "rightShaft.jpg", "egr.jpg", "turbocharger.jpg", "camshaft.jpg"};
+        String[] toolsProductManufacturers = {"Yato","Petex","Sparta", "Carmax", "LTI", "NEO Tools", "RUNKIT"};
+
+        for (int m = 0; m<toolsProductNames.length; m++){
+            Product tools = new Product();
+            tools.setName(toolsProductNames[m]);
+            tools.setCategory("Tools");
+            tools.setPictureLocation(m + ".jpg");
+            tools.setDescription("Descriere exemplu");
+            tools.setManufacturer(toolsProductManufacturers[m]);
+            tools.setPrice(20.55 + m);
+
+            productService.save(tools);
+        }
+
+        String[] sensorsProductNames = {"Lambda sensor","Map Sensor","Fuel temperature", "Tire pressure monitoring kit", "DPF Vaccum boost sensor", "Pan sensor", "Fuel Rail Sensor"};
+        String[] sensorsImageLocations = {"0", "1", "2", "3", "4", "5", "6"};
+
+        for (int n = 0; n<sensorsProductNames.length; n++){
+            Product sensors = new Product();
+            sensors.setName(sensorsProductNames[n]);
+            sensors.setCategory("Sensors");
+            sensors.setPictureLocation(sensorsImageLocations[n] + ".jpg");
+            sensors.setDescription("Descriere exemplu");
+            sensors.setManufacturer("Sensors");
+            sensors.setPrice(20.55 + n);
+
+            productService.save(sensors);
         }
     }
 }

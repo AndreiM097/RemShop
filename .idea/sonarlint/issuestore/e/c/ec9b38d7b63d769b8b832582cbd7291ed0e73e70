@@ -1,9 +1,31 @@
 
-^
-java:S1192h"IDefine a constant instead of duplicating this literal "password" 3 times.(é§†
 i
-java:S1854˜"KRemove this useless assignment to local variable "batteriesImageLocations".(ÛİÚÍ8¨ø«Ïÿ.
+java:S1854"KRemove this useless assignment to local variable "batteriesImageLocations".(ÛİÚÍ8¨ø«Ïÿ.
+p
+java:S1192"MDefine a constant instead of duplicating this literal "camshaft.jpg" 3 times.(šúøÿÿÿÿ8«„Ôáÿ.
+j
+java:S1854¾"GRemove this useless assignment to local variable "toolsImageLocations".(á¬Ğ­ùÿÿÿÿ8ìÆÖãÿ.
+q
+java:S1192"NDefine a constant instead of duplicating this literal "leftShaft.jpg" 3 times.(šúøÿÿÿÿ8«„Ôáÿ.
+k
+java:S1192"HDefine a constant instead of duplicating this literal "egr.jpg" 3 times.(šúøÿÿÿÿ8«„Ôáÿ.
 [
 java:S46844"@Replace this persistent entity with a simple POJO or DTO object.(×«âùÿÿÿÿ
+t
+java:S1192"QDefine a constant instead of duplicating this literal "turbocharger.jpg" 3 times.(šúøÿÿÿÿ8«„Ôáÿ.
 Z
-java:S1481˜"<Remove this unused "batteriesImageLocations" local variable.(ÛİÚÍ8¨ø«Ïÿ.
+java:S1481"<Remove this unused "batteriesImageLocations" local variable.(ÛİÚÍ8¨ø«Ïÿ.
+r
+java:S1192"ODefine a constant instead of duplicating this literal "rightShaft.jpg" 3 times.(šúøÿÿÿÿ8«„Ôáÿ.
+^
+java:S1192`"IDefine a constant instead of duplicating this literal "password" 3 times.(é§†
+u
+java:S1192ˆ"RDefine a constant instead of duplicating this literal "Descriere exemplu" 6 times.(éÈˆ ÿÿÿÿÿ8«„Ôáÿ.
+[
+java:S1481¾"8Remove this unused "toolsImageLocations" local variable.(á¬Ğ­ùÿÿÿÿ8‘¥Úãÿ.
+n
+java:S1192"KDefine a constant instead of duplicating this literal "piston.png" 3 times.(šúøÿÿÿÿ8«„Ôáÿ.
+l
+java:S1854"IRemove this useless assignment to local variable "productImageLocations".(šúøÿÿÿÿ8‰…Óûÿ.
+]
+java:S1481":Remove this unused "productImageLocations" local variable.(šúøÿÿÿÿ8‰…Óûÿ.

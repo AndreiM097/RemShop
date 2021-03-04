@@ -252,3 +252,9 @@ select product0_.product_id as product_1_0_, product0_.category as category2_0_,
 2021-03-03 18:58:58 jdbc[4]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROLE" not found; SQL statement:
 insert into role (id, name, user_id) values (null, ?, ?) [42102-200]
+2021-03-04 10:46:34 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found; SQL statement:
+select product0_.product_id as product_1_0_, product0_.category as category2_0_, product0_.description as descript3_0_, product0_.manufacturer as manufact4_0_, product0_.name as name5_0_, product0_.picture_location as picture_6_0_, product0_.price as price7_0_ from products product0_ where upper((product0_.name||' '||product0_.category||' '||product0_.description||' '||product0_.manufacturer||' '||product0_.price)) like upper(('%'||?||'%')) [42102-200]
+2021-03-04 22:26:26 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
+select user0_.id as id1_2_, user0_.address as address2_2_, user0_.email as email3_2_, user0_.full_name as full_nam4_2_, user0_.password as password5_2_, user0_.role_id as role_id7_2_, user0_.username as username6_2_ from user user0_ where user0_.username=? [42102-200]

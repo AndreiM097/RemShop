@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <title>RemShop</title>
     <div th:replace="fragments/header :: header-css"/>
+    <link th:href="@{/css/userList.css}" rel="stylesheet"/>
+
 </head>
 <body class="d-flex flex-column" style="min-height:100vh;">
 
@@ -18,15 +20,13 @@
             <table class="table table-bordered table-striped">
                 <thead class="thead-light">
                 <tr>
-                    <th>#</th>
-
-                    <th sec:authorize="hasAuthority('ADMIN')" >Actions</th>
-
+                    <th >#</th>
                     <th>UserName</th>
                     <th>FullName</th>
                     <th>Address</th>
                     <th>Email</th>
                     <th>Role</th>
+                    <th sec:authorize="hasAuthority('ADMIN')" >Actions</th>
 
                 </tr>
                 </thead>
@@ -34,13 +34,20 @@
                 <tr th:each="aUser: ${listOfUsers}">
                     <td th:text="${aUser.id}" />
 
-                    <td sec:authorize="hasAuthority('ADMIN')">E.D.V</td>
 
                     <td th:text="${aUser.username}" />
                     <td th:text="${aUser.fullName}" />
                     <td th:text="${aUser.address}" />
                     <td th:text="${aUser.email}" />
                     <td th:text="${aUser.role.name}" />
+                    <td class = "adminButtonGroup" sec:authorize="hasAuthority('ADMIN')">
+                        <!--add modal on delete with "are you sure?" -->
+                        <form th:action="@{/userList/{id}(id=${aUser.id})}" th:object="${aUser}" method="post">
+                        <button class="btn btn-info" type="submit" data-target="#navbar5">Update</button>
+                        <button class="btn btn-danger" type="submit" data-target="#userId">Delete</button>
+                        </form>
+                    </td>
+
 
                 </tr>
                 </tbody>

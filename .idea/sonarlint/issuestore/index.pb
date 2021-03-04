@@ -13,3 +13,15 @@ n
 >src/main/java/org/sci/myshop/config/SecurityConfiguration.java,3\4\3463e7dca097740d822d20c0aee9484770b9c9bb
 q
 Asrc/main/java/org/sci/myshop/repositories/ProductsRepository.java,a\3\a3b2f27727691c00724c4347db44d5a532e9a389
+m
+=src/main/java/org/sci/myshop/services/ProductServiceImpl.java,f\4\f4a8c465ba2c94d5e5062dfaad58f6e8c7d0b17f
+m
+=src/main/java/org/sci/myshop/repositories/UserRepository.java,6\5\650106b6e12040138121cb3615efb335872b39ec
+Z
+*src/main/java/org/sci/myshop/dao/User.java,c\e\ce4bb9e790ae1d4390a69f569bb860441ab7f360
+Z
+*src/main/java/org/sci/myshop/dao/Role.java,3\d\3d33866e6b9364495821bb24cb4040d2f09484dc
+j
+:src/main/java/org/sci/myshop/services/UserServiceImpl.java,3\a\3ad091999f9444aea18027d1ac388e14f99d0b83
+o
+?src/main/java/org/sci/myshop/controller/UserListController.java,b\e\be96256a92298505a6e5de90436fd48063d98036
