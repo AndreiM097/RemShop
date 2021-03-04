@@ -1,5 +1,9 @@
 
-[
-java:S46844"@Replace this persistent entity with a simple POJO or DTO object.(×«žâùÿÿÿÿ
 ^
 java:S1192h"IDefine a constant instead of duplicating this literal "password" 3 times.(é§†
+i
+java:S1854˜"KRemove this useless assignment to local variable "batteriesImageLocations".(ÛÝÚÍ8¨ø«Ïÿ.
+[
+java:S46844"@Replace this persistent entity with a simple POJO or DTO object.(×«žâùÿÿÿÿ
+Z
+java:S1481˜"<Remove this unused "batteriesImageLocations" local variable.(ÛÝÚÍ8¨ø«Ïÿ.

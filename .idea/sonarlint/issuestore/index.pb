@@ -11,3 +11,5 @@ l
 <src/main/java/org/sci/myshop/controller/LoginController.java,e\c\ec9b38d7b63d769b8b832582cbd7291ed0e73e70
 n
 >src/main/java/org/sci/myshop/config/SecurityConfiguration.java,3\4\3463e7dca097740d822d20c0aee9484770b9c9bb
+q
+Asrc/main/java/org/sci/myshop/repositories/ProductsRepository.java,a\3\a3b2f27727691c00724c4347db44d5a532e9a389

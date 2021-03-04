@@ -136,7 +136,7 @@ public class LoginController {
         String[] carPartsProductNames = {"Piston","Planetara stanga","Planetara dreapta", "EGR", "Turbina", "Ax cu came", "Vibrochen"};
         String[] productImageLocations = {"piston.png", "leftShaft.jpg", "rightShaft.jpg", "egr.jpg", "turbocharger.jpg", "camshaft.jpg"};
         String[] carPartsManufacturers = {"BMW", "Audi", "Volkswagen", "Volkswagen", "Dacia", "Opel"};
-        for (int i = 0; i<carPartsManufacturers.length; i++){
+        for (int i = 0; i<carPartsManufacturers.length; i++) {
             Product product = new Product();
             product.setName(carPartsProductNames[i]);
             product.setCategory("Car Parts");
@@ -146,6 +146,22 @@ public class LoginController {
             product.setPrice(20.55 + i);
 
             productService.save(product);
+        }
+
+            String[] batteriesProductNames = {"Baterie auto Bosch","Baterie auto Rombat","Baterie auto Duracell", "Baterie auto Tudor", "Baterie auto Varta", "Baterie auto Monbat", "Baterie auto Exide"};
+            String[] batteriesImageLocations = {"piston.png", "leftShaft.jpg", "rightShaft.jpg", "egr.jpg", "turbocharger.jpg", "camshaft.jpg"};
+            String[] batteriesProductManufacturers = {"Bosch","Rombat","Duracell", "Tudor", "Varta", "Monbat", "Exide"};
+
+            for (int j = 0; j<batteriesProductNames.length; j++){
+                Product battery = new Product();
+                battery.setName(batteriesProductNames[j]);
+                battery.setCategory("Batteries");
+                battery.setPictureLocation(j + ".jpg");
+                battery.setDescription("Descriere exemplu");
+                battery.setManufacturer(batteriesProductManufacturers[j]);
+                battery.setPrice(20.55 + j);
+
+                productService.save(battery);
         }
     }
 }

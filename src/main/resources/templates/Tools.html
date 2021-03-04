@@ -13,44 +13,48 @@
 
 <div th:replace="fragments/header :: header"/>
 
-<div class="container flex-fill shadow-lg p-3 mb-5  bg-white rounded" >
-    <h2>Welcome <span sec:authentication="name">Welcome</span></h2>
-    <div class="container">
-        <h3>Tools: </h3>
-        <table class="table table-bordered table-striped">
-            <thead class="thead-light">
-            <tr>
-                <th>#</th>
+<div class="cpr" style="background-image:url(https://previews.123rf.com/images/a7880s/a7880s1406/a7880s140600037/29386029-car-service-and-some-types-of-transportation-background-.jpg)";>
+    <br><br>
 
-                <th sec:authorize="hasAuthority('ADMIN')" >Actions</th>
+    <div class="container flex-fill shadow-lg p-3 mb-5" style="background-color: rgba(255, 255, 255, 0.95);; border-radius:25px;overflow:hidden;">
+        <h2>Welcome <span sec:authentication="name">Welcome</span></h2>
+        <div class="container">
+            <h3>Tools: </h3>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-light">
+                <tr>
+                    <th>#</th>
 
-                <th>Product name</th>
-                <th>Category</th>
-                <th>Description</th>
-                <th>Manufacturer</th>
-                <th>Price</th>
+                    <th sec:authorize="hasAuthority('ADMIN')" >Actions</th>
 
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="aProduct: ${listProducts}">
-                <td th:text="${aProduct.productId}" />
+                    <th>Product name</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Manufacturer</th>
+                    <th>Price</th>
 
-                <td sec:authorize="hasAuthority('ADMIN')">E.D.V</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="aProduct: ${listProducts}">
+                    <td th:text="${aProduct.productId}" />
 
-                <td th:text="${aProduct.name}" />
-                <td th:text="${aProduct.category}" />
-                <td th:text="${aProduct.description}" />
-                <td th:text="${aProduct.manufacturer}" />
-                <td th:text="${aProduct.price}" />
+                    <td sec:authorize="hasAuthority('ADMIN')">E.D.V</td>
 
-            </tr>
-            </tbody>
-        </table>
+                    <td th:text="${aProduct.name}" />
+                    <td th:text="${aProduct.category}" />
+                    <td th:text="${aProduct.description}" />
+                    <td th:text="${aProduct.manufacturer}" />
+                    <td th:text="${aProduct.price}" />
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-
-
 </div>
+
+<div th:replace="fragments/footer :: footer"/>
 
 <script src = "https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity = "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

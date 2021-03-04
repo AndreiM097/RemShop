@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <title>RemShop-Batteries</title>
     <div th:replace="fragments/header :: header-css"/>
+    <link th:href="@{/css/Batteries.css}" rel="stylesheet"/>
 
 </head>
 <body class="d-flex flex-column" style="min-height:100vh;">
@@ -13,44 +14,57 @@
 
 <div th:replace="fragments/header :: header"/>
 
-<div class="container flex-fill shadow-lg p-3 mb-5  bg-white rounded" >
-    <h2>Welcome <span sec:authentication="name">Welcome</span></h2>
-    <div class="container">
-        <h3>Results: </h3>
-        <table class="table table-bordered table-striped">
-            <thead class="thead-light">
-            <tr>
-                <th>#</th>
+<div class="cpr" style="background-image:url(https://previews.123rf.com/images/a7880s/a7880s1406/a7880s140600037/29386029-car-service-and-some-types-of-transportation-background-.jpg)";>
+    <br><br>
+    <div class = "container flex-fill shadow-lg p-3 mb-5" style="background-color: rgba(255, 255, 255, 0.95);; border-radius:25px;overflow:hidden;">
 
-                <th sec:authorize="hasAuthority('ADMIN')" >Actions</th>
+        <h2 sec:authorize = "isAuthenticated()">Welcome <span sec:authentication="name">Welcome</span></h2>
 
-                <th>Product name</th>
-                <th>Category</th>
-                <th>Description</th>
-                <th>Manufacturer</th>
-                <th>Price</th>
+        <br>
+        <!--product ddcards-->
+        <div class="card mb-3 shadow-lg" id = "productCard" th:each="aProduct : ${listProducts}">
+            <div class="row g-0">
+                <!--card image-->
+                <div class="col-md-4">
+                    <img id="cardImage" th:attr="src=@{'/images/Batteries/' + ${aProduct.pictureLocation}},title=${aProduct.name},alt=${aProduct.name}" />
+                </div>
 
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="aProduct: ${listProducts}">
-                <td th:text="${aProduct.productId}" />
+                <div class="col-md-8">
+                    <div class="card-body">
 
-                <td sec:authorize="hasAuthority('ADMIN')">E.D.V</td>
+                        <div class="cardProductTitle">
+                            <h2 class="card-title"  th:text = "${aProduct.name}" ></h2>
+                        </div>
 
-                <td th:text="${aProduct.name}" />
-                <td th:text="${aProduct.category}" />
-                <td th:text="${aProduct.description}" />
-                <td th:text="${aProduct.manufacturer}" />
-                <td th:text="${aProduct.price}" />
+                        <div class = "cardProductCategory">
+                            <h6> <b>Category: </b> </h6>
+                            <h6 class="card-title" th:text = "${aProduct.category}" ></h6>
+                        </div>
 
-            </tr>
-            </tbody>
-        </table>
+                        <div class = "cardProductManufacturer">
+                            <h6> <b>Manufacturer:</b> </h6>
+                            <h6 class="card-title" th:text = "${aProduct.manufacturer}" ></h6>
+                        </div>
+
+                        <div class = "cardProductDescription">
+                            <h6> <b>Description:</b> </h6>
+                            <h6 class="card-title" th:text = "${aProduct.description}" ></h6>
+                        </div>
+
+                        <div class="cardProductPrice">
+                            <h2 class="card-title" th:text = "${aProduct.price}" ></h2>
+                            <h2>$</h2>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
 </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
 
 <script src = "https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity = "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

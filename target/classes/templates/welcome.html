@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title>RemShop</title>
     <div th:replace="fragments/header :: header-css"/>
-    <link rel="stylesheet" href="main.css">
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
 
 </head>
 <body class="d-flex flex-column" style="min-height:100vh;">
@@ -31,19 +31,19 @@
 
 
             <div class="card-group">
-                <div class="card card shadow-lg" style="border-radius:10px;overflow:hidden;">
+                <div class="card card shadow-lg" id = "aCard1">
                     <a th:href="@{/CarParts}"> <img th:src="@{/images/parts.jpg}" alt="..."></a>
                     <div class="card-body">
                         <a th:href="@{/CarParts}"><h5 class="card-title" style="text-align: center; color:black">Car Parts</h5></a>
                     </div>
                 </div>
-                <div class="card card shadow-lg" style="border-radius:10px;overflow:hidden;">
+                <div class="card card shadow-lg" id = "aCard2">
                     <a th:href="@{/Batteries}"> <img th:src="@{/images/battery.jpg}" alt="..."></a>
                     <div class="card-body">
                         <a th:href="@{/Batteries}"><h5 class="card-title" style="text-align: center; color:black">Batteries</h5></a>
                     </div>
                 </div>
-                <div class="card card shadow-lg" style="border-radius:10px;overflow:hidden;">
+                <div class="card card shadow-lg" id = "aCard3">
                     <a th:href="@{/Oil}"> <img th:src="@{/images/oil.jpg}" alt="..."></a>
                     <div class="card-body">
                         <a th:href="@{/Oil}"><h5 class="card-title" style="text-align: center; color:black">Engine Oil</h5></a>
@@ -53,19 +53,19 @@
 
             <br><br>
             <div class="card-group">
-                <div class="card card shadow-lg" style="border-radius:10px;overflow:hidden;">
+                <div class="card card shadow-lg" id = "aCard4">
                     <a th:href="@{/Tires}"> <img th:src="@{/images/tires.jpg}" alt="..."></a>
                     <div class="card-body">
                         <a th:href="@{/Tires}"><h5 class="card-title" style="text-align: center; color:black">Tires</h5></a>
                     </div>
                 </div>
-                <div class="card card shadow-lg" style="border-radius:10px;overflow:hidden;">
+                <div class="card card shadow-lg" id = "aCard5">
                     <a th:href="@{/Sensors}"> <img th:src="@{/images/sensors.jpg}" alt="..."></a>
                     <div class="card-body">
                         <a th:href="@{/Sensors}"><h5 class="card-title" style="text-align: center; color:black">Sensors</h5></a>
                     </div>
                 </div>
-                <div class="card card shadow-lg" style="border-radius:10px;overflow:hidden;">
+                <div class="card card shadow-lg" id = "aCard6">
                     <a th:href="@{/Tools}"> <img th:src="@{/images/tools.jpg}" alt="..."></a>
                     <div class="card-body">
                         <a th:href="@{/Tools}"><h5 class="card-title" style="text-align: center; color:black">Tools</h5></a>
