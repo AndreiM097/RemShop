@@ -66,9 +66,9 @@ public class LoginController {
     @GetMapping("/login")
     public String login(Model model, String error) {
         if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
+            model.addAttribute("error", "Your username or password is invalid.");
 
-            return "login";
+            return "welcome";
     }
 
     @GetMapping({"/", "/welcome"})
