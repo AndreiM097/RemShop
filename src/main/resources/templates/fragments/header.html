@@ -20,26 +20,27 @@
     <div class="cpr" style="background-image:url(https://previews.123rf.com/images/a7880s/a7880s1406/a7880s140600037/29386029-car-service-and-some-types-of-transportation-background-.jpg)";>
     <div class="container shadow-lg p-3 mb-5 rounded">
     <nav class="navbar navbar-expand-lg navbar-light " style = "background-color: rgba(255, 255, 255, 0.95); border-radius:25px;overflow:hidden;" >
-        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbar5">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+
         <!-- logo -->
-        <a  class="navbar-brand" th:href="@{/}"><img th:src="@{/images/logo2.png}" style="height: 50px;"/></a>
+        <a th:href="@{/}"><img class="logoPosition" th:src="@{/images/logo2.png}"/></a>
 
         <div class="navbar-collapse collapse justify-content-stretch" id="navbar5">
 
             <!-- search -->
+            <div class = "searchInput-container">
             <form th:action="@{/SearchResults}" th:object="${product}" method="GET">
-                <input type="text" name="keyword" id="keyword" size="30" th:value="${keyword}" style = "border-radius:5px;" required />
-                <input type="submit"  class="btn btn-primary btn-sm" style = "margin:5px; border-radius:5px;" value="Search" />
+                    <input class = "searchField" type="text" name="keyword" id="keyword" th:value="${keyword}" required /><button type="submit"  class = "searchButton" >Search</button>
             </form>
+            </div>
 
-            <a th sec:authorize="hasAuthority('ADMIN')" th:href="@{/userList}" class="btn btn-primary btn-sm" role="button">Users page</a>
+            <button class = "navBarButtons"  th sec:authorize="hasAuthority('ADMIN')" >
+                <a th:href="@{/userList}" class = "navBarLinks" role="button">Users page</a>
+            </button>
 
             <!-- Login Button -->
             <ul class="navbar-nav ml-auto">
                 <li th:if="${#authorization.expression('!isAuthenticated()')}" style="margin-left: 20px;">
-                    <button onclick="document.getElementById('id01').style.display='block'">Login</button>
+                    <button class = "navBarButtons" onclick="document.getElementById('id01').style.display='block'">Login</button>
 
                     <!-- modal start -->
                     <div id="id01" class="modal">
@@ -60,13 +61,18 @@
                                     <span th:text="${message}"></span>
 
                                     <label for="usernameField"><b>Username</b></label>
-                                    <i class="fa fa-user icon" id = "userFieldIcon"></i>
-                                    <input name="username" type="text" class="modalField" placeholder="Username"
-                                           autofocus="true" id = "usernameField"/>
+
+                                    <div class = "input-container">
+                                        <i class="fa fa-user icon" ></i>
+                                        <input name="username" type="text" class="modalField" placeholder="Username"
+                                               autofocus="true" id = "usernameField"/>
+                                    </div>
 
                                     <label for="pwdField"><b>Password</b></label>
-                                    <input id="pwdField" name="password" type="password" class="modalField" placeholder="Password"/>
-                                    <i class="fa fa-key icon" id = "passwordFieldIcon"></i>
+                                    <div class ="input-container">
+                                        <i class="fa fa-key icon"></i>
+                                        <input id="pwdField" name="password" type="password" class="modalField" placeholder="Password"/>
+                                    </div>
                                     <span id="hasError" th:text="${error}"></span>
 
                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -82,13 +88,24 @@
                     </div>
 
                 </li>
+
+<!--                should lead to welcome and open register modal-->
+<!--                <li th:if="${#authorization.expression('!isAuthenticated()')}" style="margin-left: 20px;">-->
+<!--                    <button class = "navBarButtons" onclick="document.getElementById('id02').style.display='block'">Register</button>-->
+<!--                </li>-->
                 <li th:if="${#authorization.expression('!isAuthenticated()')}" style="margin-left: 20px;">
-                    <a th:href="@{/registration}"><i class="fas fa-sign-up-alt">&nbsp;</i> Sign-up</a>
+                    <button class = "navBarButtons">
+                        <a class = "navBarLinks" th:href="@{/registration}"><i class="fas fa-sign-up-alt">&nbsp;</i> Sign-up</a>
+                    </button>
                 </li>
+
                 <li th:if="${#authorization.expression('isAuthenticated()')}">
-                    <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">
-                        <i class="fas fa-sign-out-alt"></i> &nbsp;Logout
-                    </a>
+                    <button class = "navBarButtons">
+                        <a class = "navBarLinks" href="/logout" th:href="@{#}" onclick="$('#form').submit();">
+                            <i class="fas fa-sign-out-alt"></i> &nbsp;Logout
+                        </a>
+                    </button>
+
                     <form style="visibility: hidden" id="form" method="post" action="#" th:action="@{/logout}"></form>
                 </li>
 

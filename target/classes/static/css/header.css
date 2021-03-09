@@ -1,3 +1,64 @@
+.searchInput-container {
+  display: flex;
+  width: 30%;
+}
+
+.searchIcon {
+      background-image: linear-gradient(-8deg, rgb(0 2 115), rgb(0 134 194),transparent);
+      color: white;
+      min-width: 50px;
+      text-align: center;
+      border-bottom-left-radius: 15px;
+      border-top-left-radius: 15px;
+      font-size: 18px;
+      padding: 10px;
+}
+
+.searchField{
+    width: 60%;
+    padding-left: 8px;
+    outline: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.searchButton{
+background-image: linear-gradient(75deg, rgb(0 57 115), rgb(229 229 190),transparent);
+           background-size: 300%;
+           background-position: left;
+           color: white;
+           border-style:none;
+           text-align:center;
+           text-decoration:none;
+           padding:3px;
+           padding-right:10px;
+           padding-left:10px;
+           border-top-right-radius: 15px;
+           border-bottom-right-radius: 15px;
+           outline:none;
+           border-style:none;
+           transition: background-size 1s,background-position 1s, box-shadow 1s, color 1s;
+}
+
+
+.logoPosition{
+height:30px;
+margin-right:20px;
+}
+
+.searchButton:hover{
+    background-size: 350%;
+    background-position: right;
+    box-shadow: 0 15px 27px 0 rgb(229 229 190), 0 8px 16px 0 rgb(0 57 115);
+    font-weight: 500;
+    color:black
+    }
+
+    .searchButton:focus{
+    outline:none;
+
+    }
+
 .modal{
 background-color: rgb(0 0 0 / 50%);
 backdrop-filter: blur(10px);
@@ -23,35 +84,35 @@ backdrop-filter: blur(10px);
     color:black;
 }
 
-#userFieldIcon{
-  position: fixed;
-  top: 359px;
-  bottom:auto;
-  left:auto;
-  right:auto;
-  font-size: 19px;
-  left: 32%;
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
-#passwordFieldIcon{
-    position: fixed;
-    top: 435px;
-    bottom:auto;
-    left:auto;
-    right:auto;
-    font-size: 19px;
-    left: 32%;
+
+.icon {
+  padding: 15px;
+  background-image: linear-gradient(-8deg, rgb(0 2 115), rgb(0 134 194),transparent);
+  color: white;
+  min-width: 50px;
+  text-align: center;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  font-size: 18px;
 }
+
 .modalField{
-    margin-bottom: 5px;
     width: 100%;
-    height: 40px;
-    border-radius: 20px;
-    padding-left: 35px;
+    padding: 10px;
+    outline: none;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .modalField:focus{
 outline:none;
+border: 2px solid dodgerblue;
 }
 
 #hasError{
@@ -71,7 +132,7 @@ font-size:20px;
            height: 40px;
            margin-top: 20px;
            margin-bottom: 10px;
-           border-radius: 20px;
+           border-radius: 15px;
            background-color: #0280ff;
            box-shadow: 0 7px 27px 0 rgb(0 57 115), 0 8px 16px 0 rgb(229 229 190);
            color: white;
@@ -82,9 +143,53 @@ font-size:20px;
     background-size: 350%;
     background-position: right;
     box-shadow: 0 15px 27px 0 rgb(229 229 190), 0 8px 16px 0 rgb(0 57 115);
+    font-weight: 500;
 }
 
 .modalButtons:focus{
 outline:none;
 }
 
+
+.navBarButtons{
+           background-image: linear-gradient(75deg, rgb(0 57 115), rgb(229 229 190),transparent);
+           background-size: 300%;
+           background-position: left;
+           : 100%;
+           color: white;
+           transition: background-size 1s,background-position 1s, box-shadow 1s, color 1s;
+           border-radius:5px;
+           border-style:none;
+           text-align:center;
+           text-decoration:none;
+           padding:2px;
+           padding-top: 2px;
+           padding-bottom: 4px;
+           padding-left: 10px;
+           padding-right: 10px;
+           margin-left: 2px;
+           margin-right:2px;
+}
+
+.navBarButtons:hover{
+    background-size: 350%;
+    background-position: right;
+    box-shadow: 0 0px 15px 0 rgb(229 229 190), 0 8px 16px 0 rgb(0 57 115);
+    color:black;
+    font-weight: 500;
+}
+
+.navBarButtons:focus{
+outline:none;
+}
+
+.navBarLinks{
+text-decoration:none;
+color:white;
+transition:color 1s;
+}
+
+.navBarLinks:hover{
+text-decoration:none;
+color:black;
+}

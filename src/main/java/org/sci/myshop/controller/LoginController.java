@@ -49,11 +49,11 @@ public class LoginController {
     }
 
     @PostMapping("/registration")
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
-        userValidator.validate(userForm, bindingResult);
+    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
 
+        userValidator.validate(userForm, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return "welcome";
         }
 
         userService.save(userForm);
@@ -73,6 +73,8 @@ public class LoginController {
 
     @GetMapping({"/", "/welcome"})
     public String welcome(Model model) {
+        model.addAttribute("userForm", new User());
+
         if (servletContext.getAttribute("init")==null) {
             initUsersData();
             initProductsData();

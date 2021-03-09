@@ -7,11 +7,17 @@
     <title>RemShop</title>
     <div th:replace="fragments/header :: header-css"/>
     <link th:href="@{/css/main.css}" rel="stylesheet"/>
-
+<style>
+    a{
+    text-decoration:none;
+    }
+</style>
 </head>
+
 <body class="d-flex flex-column" style="min-height:100vh;">
 
 <div th:replace="fragments/header :: header"/>
+
 <div class="cpr" style="background-image:url(https://previews.123rf.com/images/a7880s/a7880s1406/a7880s140600037/29386029-car-service-and-some-types-of-transportation-background-.jpg)";>
     <br><br>
     <div class = "container flex-fill shadow-lg p-3 mb-5 " style="background-color: rgba(255, 255, 255, 0.95);; border-radius:25px;overflow:hidden;">
@@ -60,9 +66,9 @@
                     </div>
                 </div>
                 <div class="card card shadow-lg" id = "aCard5">
-                    <a th:href="@{/Sensors}"> <img th:src="@{/images/sensors.jpg}" alt="..."></a>
+                    <a th:href="@{/Sensors}" style="text-decoration:none;"> <img th:src="@{/images/sensors.jpg}" alt="..."></a>
                     <div class="card-body">
-                        <a th:href="@{/Sensors}"><h5 class="card-title" style="text-align: center; color:black">Sensors</h5></a>
+                        <a th:href="@{/Sensors}"><h5 class="card-title" style="text-align: center; color:black;">Sensors</h5></a>
                     </div>
                 </div>
                 <div class="card card shadow-lg" id = "aCard1">

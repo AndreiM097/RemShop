@@ -1,6 +1,7 @@
 package org.sci.myshop.controller;
 
 import org.sci.myshop.dao.Product;
+import org.sci.myshop.dao.User;
 import org.sci.myshop.repositories.ProductsRepository;
 import org.sci.myshop.services.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ public class ProductsController {
 
     @RequestMapping("/CarParts")
     public String getCarParts(Model model){
+        model.addAttribute("userForm", new User());
         List<Product> listProducts = productService.listAll("Car Parts");
         model.addAttribute("listProducts", listProducts);
         return "CarParts";
