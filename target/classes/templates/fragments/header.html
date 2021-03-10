@@ -17,12 +17,12 @@
 <body>
 <div th:fragment="header">
     <!-- this is header -->
-    <div class="cpr" style="background-image:url(https://previews.123rf.com/images/a7880s/a7880s1406/a7880s140600037/29386029-car-service-and-some-types-of-transportation-background-.jpg)";>
-    <div class="container shadow-lg p-3 mb-5 rounded">
-    <nav class="navbar navbar-expand-lg navbar-light " style = "background-color: rgba(255, 255, 255, 0.95); border-radius:25px;overflow:hidden;" >
+    <div class="myNavBarContainer" id = "myNavBarContainer" >
+    <nav class="navbar navbar-expand-lg navbar-light " >
 
         <!-- logo -->
-        <a th:href="@{/}"><img class="logoPosition" th:src="@{/images/logo2.png}"/></a>
+        <a th:href="@{/}"><img class="logoPosition" id = "myLogo" th:src="@{/images/logo2.png}"/></a>
+
 
         <div class="navbar-collapse collapse justify-content-stretch" id="navbar5">
 
@@ -32,10 +32,6 @@
                     <input class = "searchField" type="text" name="keyword" id="keyword" th:value="${keyword}" required /><button type="submit"  class = "searchButton" >Search</button>
             </form>
             </div>
-
-            <button class = "navBarButtons"  th sec:authorize="hasAuthority('ADMIN')" >
-                <a th:href="@{/userList}" class = "navBarLinks" role="button">Users page</a>
-            </button>
 
             <!-- Login Button -->
             <ul class="navbar-nav ml-auto">
@@ -89,10 +85,11 @@
 
                 </li>
 
-<!--                should lead to welcome and open register modal-->
-<!--                <li th:if="${#authorization.expression('!isAuthenticated()')}" style="margin-left: 20px;">-->
-<!--                    <button class = "navBarButtons" onclick="document.getElementById('id02').style.display='block'">Register</button>-->
-<!--                </li>-->
+                <li>
+                    <button class = "navBarButtons"  th sec:authorize="hasAuthority('ADMIN')" >
+                        <a th:href="@{/userList}" class = "navBarLinks" role="button">Users page</a>
+                    </button>
+                </li>
                 <li th:if="${#authorization.expression('!isAuthenticated()')}" style="margin-left: 20px;">
                     <button class = "navBarButtons">
                         <a class = "navBarLinks" th:href="@{/registration}"><i class="fas fa-sign-up-alt">&nbsp;</i> Sign-up</a>
@@ -112,11 +109,16 @@
             </ul>
         </div>
     </nav>
+    </div>
+    <script type="text/javascript" th:src="@{/js/header.js}"></script>
+    <script>
+     if(document.getElementById("hasError").innerHTML.length > 1 ) {
+      document.getElementById('id01').style.display='block';
+     }
+    </script>
 </div>
 </div>
-</div>
-
-<script type="text/javascript" th:src="@{/js/header.js}"></script>
+<br><br>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
