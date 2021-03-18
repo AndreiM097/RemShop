@@ -1,33 +1,11 @@
 
-^
-java:S1192b"IDefine a constant instead of duplicating this literal "password" 3 times.(é§†
-k
-java:S1192ƒ"HDefine a constant instead of duplicating this literal "egr.jpg" 3 times.(šúøÿÿÿÿ8«„Ôáÿ.
-q
-java:S1192ƒ"NDefine a constant instead of duplicating this literal "leftShaft.jpg" 3 times.(šúøÿÿÿÿ8«„Ôáÿ.
-Z
-java:S1481’"<Remove this unused "batteriesImageLocations" local variable.(ÛİÚÍ8¨ø«Ïÿ.
-[
-java:S1481À"8Remove this unused "toolsImageLocations" local variable.(á¬Ğ­ùÿÿÿÿ8‘¥Úãÿ.
-p
-java:S1192ƒ"MDefine a constant instead of duplicating this literal "camshaft.jpg" 3 times.(šúøÿÿÿÿ8«„Ôáÿ.
-n
-java:S1192ƒ"KDefine a constant instead of duplicating this literal "piston.png" 3 times.(šúøÿÿÿÿ8«„Ôáÿ.
-t
-java:S1192ƒ"QDefine a constant instead of duplicating this literal "turbocharger.jpg" 3 times.(šúøÿÿÿÿ8«„Ôáÿ.
-r
-java:S1192ƒ"ODefine a constant instead of duplicating this literal "rightShaft.jpg" 3 times.(šúøÿÿÿÿ8«„Ôáÿ.
-l
-java:S1854ƒ"IRemove this useless assignment to local variable "productImageLocations".(šúøÿÿÿÿ8‰…Óûÿ.
 j
-java:S1854À"GRemove this useless assignment to local variable "toolsImageLocations".(á¬Ğ­ùÿÿÿÿ8ìÆÖãÿ.
-]
-java:S46844"@Replace this persistent entity with a simple POJO or DTO object.(¬ùÄ…8×ĞÂ/
-]
-java:S1481ƒ":Remove this unused "productImageLocations" local variable.(šúøÿÿÿÿ8‰…Óûÿ.
-i
-java:S1854’"KRemove this useless assignment to local variable "batteriesImageLocations".(ÛİÚÍ8¨ø«Ïÿ.
-j
-java:S11928"HDefine a constant instead of duplicating this literal "welcome" 3 times.(¾ºê øÿÿÿÿ8â®Ä¸/
+java:S1192:"HDefine a constant instead of duplicating this literal "welcome" 3 times.(¾ºê øÿÿÿÿ8â®Ä¸/
+Y	java:S125ˆ"<This block of commented-out lines of code should be removed.(‘É¥‡8‰¥‹‚/
+Y	java:S125Œ"<This block of commented-out lines of code should be removed.(¿¸ê8éÊ‹‚/
+f
+java:S1192i"IDefine a constant instead of duplicating this literal "password" 3 times.(»¿˜–8Ç¥ßä/
 u
-java:S1192Š"RDefine a constant instead of duplicating this literal "Descriere exemplu" 6 times.(éÈˆ ÿÿÿÿÿ8«„Ôáÿ.
+java:S1192¤"RDefine a constant instead of duplicating this literal "Descriere exemplu" 6 times.(éÈˆ ÿÿÿÿÿ8›‹öå/
+]
+java:S46846"@Replace this persistent entity with a simple POJO or DTO object.(¬ùÄ…8Š±›‚/

@@ -1,5 +1,0 @@
-
-t
-java:S1128	"RRemove this unused import 'org.springframework.web.bind.annotation.DeleteMapping'.(­ìÎªşÿÿÿÿ8õÎµõÿ.
-m
-java:S1128"KRemove this unused import 'org.sci.myshop.services.interfaces.UserService'.(öÆĞ¤úÿÿÿÿ8‹óÕôÿ.

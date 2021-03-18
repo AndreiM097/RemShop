@@ -86,10 +86,17 @@
                 </li>
 
                 <li>
+                    <button class = "navBarButtons" >
+                        <a th:href="@{/ShoppingCart}" class = "navBarLinks" role="button">Shopping Cart</a>
+                    </button>
+                </li>
+
+                <li>
                     <button class = "navBarButtons"  th sec:authorize="hasAuthority('ADMIN')" >
                         <a th:href="@{/userList}" class = "navBarLinks" role="button">Users page</a>
                     </button>
                 </li>
+
                 <li th:if="${#authorization.expression('!isAuthenticated()')}" style="margin-left: 20px;">
                     <button class = "navBarButtons">
                         <a class = "navBarLinks" th:href="@{/registration}"><i class="fas fa-sign-up-alt">&nbsp;</i> Sign-up</a>

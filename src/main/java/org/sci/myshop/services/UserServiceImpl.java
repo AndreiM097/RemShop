@@ -40,7 +40,17 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
+    public void findUserById(Long id){ userRepository.findById(id);}
+
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
+    }
+
+    public void updateUser(User oldUser, User newUser) {
+        oldUser.setUsername(newUser.getUsername());
+        oldUser.setFullName(newUser.getFullName());
+        oldUser.setAddress(newUser.getAddress());
+        oldUser.setEmail(newUser.getEmail());
+        oldUser.setRole(newUser.getRole());
     }
 }

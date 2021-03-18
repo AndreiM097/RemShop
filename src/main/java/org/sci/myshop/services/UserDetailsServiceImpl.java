@@ -1,6 +1,5 @@
 package org.sci.myshop.services;
 
-import org.sci.myshop.dao.Role;
 import org.sci.myshop.dao.User;
 import org.sci.myshop.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

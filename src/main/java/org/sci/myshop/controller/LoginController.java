@@ -1,12 +1,11 @@
 package org.sci.myshop.controller;
 
-import org.sci.myshop.dao.Product;
-import org.sci.myshop.dao.Role;
-import org.sci.myshop.dao.User;
+import org.sci.myshop.dao.*;
 import org.sci.myshop.services.ProductServiceImpl;
+import org.sci.myshop.services.ShoppingCartServiceImpl;
+import org.sci.myshop.services.UserServiceImpl;
 import org.sci.myshop.services.interfaces.RolesService;
 import org.sci.myshop.services.interfaces.SecurityService;
-import org.sci.myshop.services.interfaces.UserService;
 import org.sci.myshop.utils.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +23,7 @@ import java.util.List;
 public class LoginController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @Autowired
     private RolesService rolesService;
@@ -34,6 +33,9 @@ public class LoginController {
 
     @Autowired
     private ProductServiceImpl productService;
+
+    @Autowired
+    private ShoppingCartServiceImpl shoppingCartContentService;
 
     @Autowired
     private UserValidator userValidator;
@@ -87,21 +89,14 @@ public class LoginController {
         List<Role> roles = new ArrayList<>();
         Role adminRole =new Role();
         Role userRole =new Role();
+
         adminRole.setName("ADMIN");
         userRole.setName("USER");
         roles.add(adminRole);
         roles.add(userRole);
+
         rolesService.saveRoles(roles);
         roles=rolesService.findAllRoles();
-        User adminUser = new User();
-        adminUser.setUsername("rem");
-        adminUser.setPassword("password");
-        adminUser.setFullName("remUser");
-        adminUser.setAddress("RemAddress");
-
-        adminUser.setRole(roles.get(1));
-
-        userService.save(adminUser);
 
         String[] adminUsers = {"Rares", "Marian", "Marius", "Robert"};
         for (int i = 0;i<adminUsers.length;i++){
@@ -111,7 +106,22 @@ public class LoginController {
             admins.setFullName(adminUsers[i]);
             admins.setAddress(adminUsers[i] + "'s " + "address");
             admins.setRole(roles.get(0));
+
             userService.save(admins);
+
+
+
+            User adminsToUpdate = userService.findByUsername(adminUsers[i]);
+
+            User updatedAdmins = new User();
+            updatedAdmins.setUsername(adminUsers[i]);
+            updatedAdmins.setPassword("password");
+            updatedAdmins.setFullName(adminUsers[i]);
+            updatedAdmins.setAddress(adminUsers[i] + "'s " + "address");
+            updatedAdmins.setRole(roles.get(0));
+
+
+            userService.updateUser(adminsToUpdate, updatedAdmins);
         }
 
         for (int i = 1;i <= 5;i++){
@@ -122,19 +132,35 @@ public class LoginController {
             fakeUser.setAddress("Fake Adress " + i);
             fakeUser.setRole(roles.get(1));
             userService.save(fakeUser);
+
+//            ShoppingCartDetails usersShoppingCartDetails = new ShoppingCartDetails();
+//            usersShoppingCartDetails.setUser(fakeUser);
+//            shoppingCartDetailsService.save(usersShoppingCartDetails);
+
+//            User usersToUpdate = userService.findByUsername("User" + i);
+//
+//            User updatedUsers = new User();
+//            updatedUsers.setUsername("User" + i);
+//            updatedUsers.setPassword("password");
+//            updatedUsers.setFullName("Fake User " + i);
+//            updatedUsers.setAddress("Fake Adress " + i);
+//            updatedUsers.setRole(roles.get(1));
+//            updatedUsers.setShoppingCartDetails(usersShoppingCartDetails);
+//
+//            userService.updateUser(usersToUpdate, updatedUsers);
         }
     }
 
     private void initProductsData(){
 
         String[] carPartsProductNames = {"Piston","Planetara stanga","Planetara dreapta", "EGR", "Turbina", "Ax cu came", "Vibrochen"};
-        String[] productImageLocations = {"piston.png", "leftShaft.jpg", "rightShaft.jpg", "egr.jpg", "turbocharger.jpg", "camshaft.jpg"};
+        String[] productImageLocations = {"/images/CarProducts/0.jpg", "/images/CarProducts/1.jpg", "/images/CarProducts/2.jpg", "/images/CarProducts/3.jpg", "/images/CarProducts/4.jpg", "/images/CarProducts/5.jpg"};
         String[] carPartsManufacturers = {"BMW", "Audi", "Volkswagen", "Volkswagen", "Dacia", "Opel"};
         for (int i = 0; i<carPartsManufacturers.length; i++) {
             Product product = new Product();
             product.setName(carPartsProductNames[i]);
             product.setCategory("Car Parts");
-            product.setPictureLocation(i + ".jpg");
+            product.setPictureLocation(productImageLocations[i]);
             product.setDescription("Descriere exemplu");
             product.setManufacturer(carPartsManufacturers[i]);
             product.setPrice(20.55 + i);
@@ -143,14 +169,14 @@ public class LoginController {
         }
 
             String[] batteriesProductNames = {"Baterie auto Bosch","Baterie auto Rombat","Baterie auto Duracell", "Baterie auto Tudor", "Baterie auto Varta", "Baterie auto Monbat", "Baterie auto Exide"};
-            String[] batteriesImageLocations = {"piston.png", "leftShaft.jpg", "rightShaft.jpg", "egr.jpg", "turbocharger.jpg", "camshaft.jpg"};
+            String[] batteriesImageLocations = {"/images/Batteries/0.jpg", "/images/Batteries/1.jpg", "/images/Batteries/2.jpg", "/images/Batteries/3.jpg", "/images/Batteries/4.jpg", "/images/Batteries/5.jpg", "/images/Batteries/6.jpg"};
             String[] batteriesProductManufacturers = {"Bosch","Rombat","Duracell", "Tudor", "Varta", "Monbat", "Exide"};
 
             for (int j = 0; j<batteriesProductNames.length; j++){
                 Product battery = new Product();
                 battery.setName(batteriesProductNames[j]);
                 battery.setCategory("Batteries");
-                battery.setPictureLocation(j + ".jpg");
+                battery.setPictureLocation(batteriesImageLocations[j]);
                 battery.setDescription("Descriere exemplu");
                 battery.setManufacturer(batteriesProductManufacturers[j]);
                 battery.setPrice(20.55 + j);
@@ -159,13 +185,14 @@ public class LoginController {
         }
 
         String[] oilProductNames = {"Turbo Diesel 5W40","SYNT RSI 5W40","Tec 4100 5W40", "LONG LIFE 5W30", "Ecology 5W30", "700 STI 10W-40", "SuperDiesel 10w40"};
+        String[] oilImageLocations = {"/images/Oil/0.jpg", "/images/Oil/1.jpg", "/images/Oil/2.jpg", "/images/Oil/3.jpg", "/images/Oil/4.jpg", "/images/Oil/5.jpg", "/images/Oil/6.jpg"};
         String[] oilProductManufacturers = {"Castrol","Rowe","Liqui Moly", "Repsol", "Kennol", "Elf", "Hexol"};
 
         for (int k = 0; k<oilProductNames.length; k++){
             Product oil = new Product();
             oil.setName(oilProductNames[k]);
             oil.setCategory("Oil");
-            oil.setPictureLocation(k + ".jpg");
+            oil.setPictureLocation(oilImageLocations[k]);
             oil.setDescription("Descriere exemplu");
             oil.setManufacturer(oilProductManufacturers[k]);
             oil.setPrice(20.55 + k);
@@ -174,13 +201,14 @@ public class LoginController {
         }
 
         String[] tiresProductNames = {"ECOCONTACT 225/45R17","CrossClimate 205/5 R16","Cinturato 205/55 R16", "Ventus Prime 205/55 R16", "T005 205/55 R16", "91H 195/65 R16", "Wetproof 195/65 R16"};
+        String[] tiresImageLocations = {"/images/Tires/0.jpg", "/images/Tires/1.jpg", "/images/Tires/2.jpg", "/images/Tires/3.jpg", "/images/Tires/4.jpg", "/images/Tires/5.jpg", "/images/Tires/6.jpg"};
         String[] tiresProductManufacturers = {"Continental","Michelin","Pireli", "Hankook", "Bridgestone", "Goodyear", "NOKIAN"};
 
         for (int l = 0; l<tiresProductNames.length; l++){
             Product tires = new Product();
             tires.setName(tiresProductNames[l]);
             tires.setCategory("Tires");
-            tires.setPictureLocation(l + ".jpg");
+            tires.setPictureLocation(tiresImageLocations[l]);
             tires.setDescription("Descriere exemplu");
             tires.setManufacturer(tiresProductManufacturers[l]);
             tires.setPrice(20.55 + l);
@@ -189,14 +217,14 @@ public class LoginController {
         }
 
         String[] toolsProductNames = {"Surubelnita YT-28015","Cric auto hidraulic","Ventuza pentru sticla D-117", "Canistra pentru ulei 8L", "Trusa profesionala auto", "Separator etrier frana cu clichet", "Cheie schimb filtru ulei cu lant"};
-        String[] toolsImageLocations = {"piston.png", "leftShaft.jpg", "rightShaft.jpg", "egr.jpg", "turbocharger.jpg", "camshaft.jpg"};
+        String[] toolsImageLocations = {"/images/Tools/0.jpg", "/images/Tools/1.jpg", "/images/Tools/2.jpg", "/images/Tools/3.jpg", "/images/Tools/4.jpg", "/images/Tools/5.jpg", "/images/Tools/6.jpg"};
         String[] toolsProductManufacturers = {"Yato","Petex","Sparta", "Carmax", "LTI", "NEO Tools", "RUNKIT"};
 
         for (int m = 0; m<toolsProductNames.length; m++){
             Product tools = new Product();
             tools.setName(toolsProductNames[m]);
             tools.setCategory("Tools");
-            tools.setPictureLocation(m + ".jpg");
+            tools.setPictureLocation(toolsImageLocations[m]);
             tools.setDescription("Descriere exemplu");
             tools.setManufacturer(toolsProductManufacturers[m]);
             tools.setPrice(20.55 + m);
@@ -205,13 +233,13 @@ public class LoginController {
         }
 
         String[] sensorsProductNames = {"Lambda sensor","Map Sensor","Fuel temperature", "Tire pressure monitoring kit", "DPF Vaccum boost sensor", "Pan sensor", "Fuel Rail Sensor"};
-        String[] sensorsImageLocations = {"0", "1", "2", "3", "4", "5", "6"};
+        String[] sensorsImageLocations = {"/images/Sensors/0.jpg", "/images/Sensors/1.jpg", "/images/Sensors/2.jpg", "/images/Sensors/3.jpg", "/images/Sensors/4.jpg", "/images/Sensors/5.jpg", "/images/Sensors/6.jpg"};
 
         for (int n = 0; n<sensorsProductNames.length; n++){
             Product sensors = new Product();
             sensors.setName(sensorsProductNames[n]);
             sensors.setCategory("Sensors");
-            sensors.setPictureLocation(sensorsImageLocations[n] + ".jpg");
+            sensors.setPictureLocation(sensorsImageLocations[n]);
             sensors.setDescription("Descriere exemplu");
             sensors.setManufacturer("Sensors");
             sensors.setPrice(20.55 + n);

@@ -1,3 +1,30 @@
 
-h
-java:S1192"MDefine a constant instead of duplicating this literal "listProducts" 7 times.(»‰‰­şÿÿÿÿ
+i
+java:S1128"LRemove this unused import 'org.springframework.data.repository.query.Param'.(©”šô8ìŸî²‚/
+T
+java:S1128"2Remove this unused import 'javax.servlet.Servlet'.(‰¾œøÿÿÿÿ8ŸÈ¿²‚/
+^
+java:S1128"ARemove this unused import 'org.springframework.http.HttpRequest'.(ÌÖÁÛ8õ®Î²‚/
+]
+java:S1128";Remove this unused import 'javax.servlet.http.HttpServlet'.(û÷Å›ÿÿÿÿÿ8õ®Î²‚/
+X
+java:S1128";Remove this unused import 'javax.servlet.http.HttpSession'.(í¨ô8Ñ–Ô²‚/
+V
+java:S1128"9Remove this unused import 'javax.servlet.ServletContext'.(á¡æŞ8‚Ê ²‚/
+x
+java:S1128"[Remove this unused import 'org.springframework.web.servlet.mvc.support.RedirectAttributes'.(ìçÚË8Ï’°³‚/
+d
+java:S1128"GRemove this unused import 'org.sci.myshop.repositories.UserRepository'.(ÚÁÖò8Úï¿œ‚/
+
+java:S1128
+"]Remove this unused import 'org.springframework.boot.autoconfigure.session.SessionProperties'.(â€¨äüÿÿÿÿ8Ê€Â²‚/
+p
+java:S11923"SDefine a constant instead of duplicating this literal "ProductsByCategory" 7 times.(›¡á·8‹„Ò°‚/
+c
+java:S1128"ARemove this unused import 'org.springframework.web.servlet.View'.(Ó«­œşÿÿÿÿ8íĞÚ²‚/
+o
+java:S11922"MDefine a constant instead of duplicating this literal "listProducts" 6 times.(»‰‰­şÿÿÿÿ8ìŸî²‚/
+k
+java:S1128"NRemove this unused import 'org.springframework.web.servlet.view.RedirectView'.(ñÎ²Ò8ß¡À³‚/
+W
+java:S1128"5Remove this unused import 'java.net.http.HttpClient'.(Œ³’Öşÿÿÿÿ8…‡³³‚/

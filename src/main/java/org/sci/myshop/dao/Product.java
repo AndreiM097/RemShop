@@ -10,19 +10,19 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long productId;
 
-    public String name;
+    private String name;
 
-    public String category;
+    private String category;
 
-    public String description;
+    private String description;
 
-    public String manufacturer;
+    private String manufacturer;
 
-    public String pictureLocation;
+    private String pictureLocation;
 
-    public double price;
+    private double price;
 
-   public long getProductId() {
+    public long getProductId() {
       return productId;
    }
 
