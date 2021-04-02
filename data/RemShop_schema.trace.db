@@ -188,3 +188,6 @@ select product0_.product_id as product_1_0_0_, product0_.category as category2_0
 2021-03-12 12:47:25 jdbc[4]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found; SQL statement:
 select product0_.product_id as product_1_0_, product0_.category as category2_0_, product0_.description as descript3_0_, product0_.manufacturer as manufact4_0_, product0_.name as name5_0_, product0_.picture_location as picture_6_0_, product0_.price as price7_0_ from products product0_ where upper((product0_.name||' '||product0_.category||' '||product0_.description||' '||product0_.manufacturer||' '||product0_.price)) like upper(('%'||?||'%')) [42102-200]
+2021-04-02 18:41:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ROLE" not found; SQL statement:
+insert into role (id, name, user_id) values (null, ?, ?) [42102-200]

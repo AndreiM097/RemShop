@@ -53,7 +53,7 @@
                                 <h2>$</h2>
                             </div>
                             <form th:action="@{/CarParts/{id}(id=${aProduct.productId})}" th:object="${aProduct}" method="post">
-                                <button class="navBarButtons" type="submit" data-target="#productId" style = "width: 18%;">Add to cart</button>
+                                <button class="navBarButtons" type="submit"  onClick="window.location.reload();" data-target="#productId">Add to cart</button>
                             </form>
                     </div>
                 </div>
