@@ -1,32 +1,7 @@
 
-V
-java:S1128"9Remove this unused import 'javax.servlet.ServletContext'.(á¡æŞ8‚Ê ²‚/
-p
-java:S11923"SDefine a constant instead of duplicating this literal "ProductsByCategory" 6 times.(›¡á·8‹„Ò°‚/
-^
-java:S1128"ARemove this unused import 'org.springframework.http.HttpRequest'.(ÌÖÁÛ8õ®Î²‚/
-x
-java:S1128"[Remove this unused import 'org.springframework.web.servlet.mvc.support.RedirectAttributes'.(ìçÚË8Ï’°³‚/
-i
-java:S1128"LRemove this unused import 'org.springframework.data.repository.query.Param'.(©”šô8ìŸî²‚/
-]
-java:S1128";Remove this unused import 'javax.servlet.http.HttpServlet'.(û÷Å›ÿÿÿÿÿ8õ®Î²‚/
-c
-java:S1128"ARemove this unused import 'org.springframework.web.servlet.View'.(Ó«­œşÿÿÿÿ8íĞÚ²‚/
-
-java:S1128
-"]Remove this unused import 'org.springframework.boot.autoconfigure.session.SessionProperties'.(â€¨äüÿÿÿÿ8Ê€Â²‚/
-d
-java:S1128"GRemove this unused import 'org.sci.myshop.repositories.UserRepository'.(ÚÁÖò8Úï¿œ‚/
-X
-java:S1128";Remove this unused import 'javax.servlet.http.HttpSession'.(í¨ô8Ñ–Ô²‚/
-X	java:S1256"<This block of commented-out lines of code should be removed.(±Åóÿ8ƒçÆÂ‡/
-k
-java:S1128"NRemove this unused import 'org.springframework.web.servlet.view.RedirectView'.(ñÎ²Ò8ß¡À³‚/
-T
-java:S1128"2Remove this unused import 'javax.servlet.Servlet'.(‰¾œøÿÿÿÿ8ŸÈ¿²‚/
-W
-java:S1128"5Remove this unused import 'java.net.http.HttpClient'.(Œ³’Öşÿÿÿÿ8…‡³³‚/
 o
-java:S11922"MDefine a constant instead of duplicating this literal "listProducts" 6 times.(»‰‰­şÿÿÿÿ8ìŸî²‚/
-]	java:S125?"<This block of commented-out lines of code should be removed.(ò”ı¦şÿÿÿÿ8²‡îÂ‡/
+java:S1192$"MDefine a constant instead of duplicating this literal "listProducts" 7 times.(»‰‰­şÿÿÿÿ8ìŸî²‚/
+Œ
+java:S4144F"jUpdate this method so that its implementation is not identical to "addToCartProductManagement" on line 42.(ØéÉÏúÿÿÿÿ8Ìâûš‰/
+u
+java:S1192."SDefine a constant instead of duplicating this literal "ProductsByCategory" 8 times.(å–üÄøÿÿÿÿ8‹„Ò°‚/

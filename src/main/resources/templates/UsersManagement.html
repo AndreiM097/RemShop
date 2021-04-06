@@ -49,7 +49,7 @@
                     <td th:text="${aUser.role.name}" />
                     <td class = "adminButtonGroup" sec:authorize="hasAuthority('ADMIN')">
 
-                        <form th:action="@{/userList/{id}(id=${aUser.id})}" th:object="${aUser}" method="post">
+                        <form th:action="@{/UsersManagement/{id}(id=${aUser.id})}" th:object="${aUser}" method="post">
                             <button class="btn btn-danger" type="submit" data-target="#userId" style = "width: 100%;">Delete</button>
                         </form>
                     </td>

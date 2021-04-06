@@ -28,10 +28,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/css/**","/js/**","/images/**", "/registration","/","/welcome",
+                .antMatchers("/css/**","/js/**","/images/**", "/registration","/","/Welcome",
                         "/search", "/SearchResults", "/CarParts" ,"/Batteries", "/Oil", "/Sensors",
                         "/Tires", "/Tools", "/ShoppingCart").permitAll()
-                .antMatchers("/userList", "/ProductsManagement").hasAuthority("ADMIN")
+                .antMatchers("/UsersManagement", "/ProductsManagement").hasAuthority("ADMIN")
                 .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -39,11 +39,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/welcome",true)
+                .defaultSuccessUrl("/Welcome",true)
                 .permitAll()
 
                 .and()
-                .logout().logoutSuccessUrl("/welcome")
+                .logout().logoutSuccessUrl("/Welcome")
                 .permitAll();
         http.headers().frameOptions().disable();
     }

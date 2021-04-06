@@ -4,14 +4,13 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
 //if scrolling down , the logo will shrink and move to the left...else it will stay centered
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("myLogo").style.height = "35px";
-    document.getElementById("myNavBarContainer").style.borderRadius = "20px";
-    document.getElementById("myNavBarContainer").style.width = "80%";
-    document.getElementById("myNavBarContainer").style.left = "9%";
-    document.getElementById("myNavBarContainer").style.backgroundColor = "rgba(255, 255, 255, 0.90)";
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    document.getElementById("myNavBarContainer").style.transform = "translateY(-100%)";
+    document.getElementById("myNavBarContainer").style.transition = "transform 0.5s";
   }
   else {
+//   document.getElementById("myNavBarContainer").style.display = "block";
+      document.getElementById("myNavBarContainer").style.transform = "translateY(0%)";
       document.getElementById("myLogo").style.height = "45px";
       document.getElementById("myNavBarContainer").style.borderRadius = "0px";
       document.getElementById("myNavBarContainer").style.width = "100%";

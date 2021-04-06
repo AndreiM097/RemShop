@@ -16,4 +16,5 @@ public interface ProductService {
 
     void findAndAddToCartById(Long id, String username);
 
+    void deleteProductById(long id);
 }

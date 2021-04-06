@@ -55,14 +55,14 @@ public class LoginController {
 
         userValidator.validate(userForm, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "welcome";
+            return "Welcome";
         }
 
         userService.save(userForm);
 
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
 
-        return "redirect:/welcome";
+        return "redirect:/Welcome";
     }
 
     @GetMapping("/login")
@@ -70,11 +70,11 @@ public class LoginController {
         if (error != null)
             model.addAttribute("error", "Your username or password is invalid.");
 
-            return "welcome";
+            return "Welcome";
     }
 
-    @GetMapping({"/", "/welcome"})
-    public String welcome(Model model) {
+    @GetMapping({"/", "/Welcome"})
+    public String getWelcomePage(Model model) {
         model.addAttribute("userForm", new User());
 
         if (servletContext.getAttribute("init")==null) {
@@ -82,7 +82,7 @@ public class LoginController {
             initProductsData();
             servletContext.setAttribute("init", true);
         }
-            return "welcome";
+            return "Welcome";
         }
 
     private void initUsersData(){

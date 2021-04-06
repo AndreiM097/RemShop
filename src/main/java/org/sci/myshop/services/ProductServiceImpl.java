@@ -53,6 +53,11 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
+    @Override
+    public void deleteProductById(long id) {
+        productsRepository.deleteById(id);
+    }
+
 
     public List<Product> listAll(String keyword) {
         if (keyword != null) {

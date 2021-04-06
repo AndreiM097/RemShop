@@ -1,119 +1,49 @@
-h1{
-    color:#0000FF;
-}
 
-h2{
-    color:#FF0000;
-}
-
-.modal {
-   display: none; /* Hidden by default */
-   position: fixed; /* Stay in place */
-   z-index: 1; /* Sit on top */
-   padding-top: 100px; /* Location of the box */
-   left: 0;
-   top: 0;
-   width: 100%; /* Full width */
-   height: 100%; /* Full height */
-   overflow: auto; /* Enable scroll if needed */
-   background-color: rgb(0,0,0); /* Fallback color */
-   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
- }
-
- /* Modal Content */
- .modal-content {
-   background-color: #fefefe;
-   margin: auto;
-   padding: 20px;
-   border: 1px solid #888;
-   width: 80%;
- }
-
- /* The Close Button */
- .close {
-   color: #aaaaaa;
-   float: right;
-   font-size: 28px;
-   font-weight: bold;
- }
-
- .close:hover,
- .close:focus {
-   color: #000;
-   text-decoration: none;
-   cursor: pointer;
- }
-
-#aCard1{
+#productCard{
+max-width: 94%;
+left:2%;
 border-radius:10px;
 overflow:hidden;
-transition:transform 0.2s, z-index 0.3s, background-color 0.5s;
+transition:background-color 0.1s;
+transition:max-width 1s;
+background-color:white;
 }
 
-#aCard1:hover{
-z-index: 9;
-transform: scale(1.05);
-background-color:rgb(255,223,0, 0.7);
+#productCard:hover{
+background-color:rgb(255,223,0, 0.4);
+max-width:95%;
 }
 
-#aCard2{
+#cardImage{
 border-radius:10px;
-overflow:hidden;
-transition:transform 0.2s, z-index 0.3s, background-color 0.5s;
 }
 
-#aCard2:hover{
-z-index: 9;
-transform: scale(1.05);
-background-color:rgb(255,223,0, 0.7);
+.card-body{
+left:50%;
 }
 
-#aCard3{
-border-radius:10px;
-overflow:hidden;
-transition:transform 0.2s, z-index 0.3s, background-color 0.5s;
+.cardProductCategory{
+    display:flex;
 }
 
-#aCard3:hover{
-z-index: 9;
-transform: scale(1.05);
-background-color:rgb(255,223,0, 0.7);
+.cardProductManufacturer{
+    display:flex;
 }
 
-#aCard4{
-border-radius:10px;
-overflow:hidden;
-transition:transform 0.2s, z-index 0.3s, background-color 0.5s;
+.cardProductDescription{
+    display:flex;
 }
 
-#aCard4:hover{
-z-index: 9;
-transform: scale(1.05);
-background-color:rgb(255,223,0, 0.7);
+.cardProductPrice{
+    left: 90%;
+    display: flex;
+    position: absolute;
+    left: 80%;
+    bottom: 1%;
+    top: auto;
+    right: auto;
+    }
+
+.cardButtons{
+    display:flex;
 }
-
-#aCard5{
-border-radius:10px;
-overflow:hidden;
-transition:transform 0.2s, z-index 0.3s, background-color 0.5s;
-}
-
-#aCard5:hover{
-z-index: 9;
-transform: scale(1.05);
-background-color:rgb(255,223,0, 0.7);
-}
-
-#aCard6{
-border-radius:10px;
-overflow:hidden;
-transition:transform 0.2s, z-index 0.3s, background-color 0.5s;
-}
-
-#aCard6:hover{
-z-index: 9;
-transform: scale(1.05);
-background-color:rgb(255,223,0, 0.7);
-}
-
-

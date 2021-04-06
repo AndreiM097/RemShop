@@ -16,17 +16,17 @@ public class UserListController {
     @Autowired
     private UserServiceImpl userService;
 
-    @GetMapping("/userList")
+    @GetMapping("/UsersManagement")
     public String getUserList(Model model){
         List<User> list = userService.findAllUsers();
         model.addAttribute("listOfUsers",list);
 
-        return "userList";
+        return "UsersManagement";
     }
 
-    @PostMapping("/userList/{id}")
+    @PostMapping("/UsersManagement/{id}")
     public String deleteProductById(@PathVariable Long id, Model model){
        userService.deleteUser(id);
-       return "redirect:/userList";
+       return "redirect:/UsersManagement";
     }
 }

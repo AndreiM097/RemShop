@@ -38,12 +38,18 @@ public class ProductsController {
         return "ProductsManagement";
     }
 
-    @PostMapping("/ProductsManagement/{id}")
+    @PostMapping("/ProductsManagement/AddToCart/{id}")
     public String addToCartProductManagement(@PathVariable Long id, @AuthenticationPrincipal UserDetails currentUser, HttpServletRequest request){
         String user = currentUser.getUsername();
 
         productService.findAndAddToCartById(id, user);
         return getPreviousPageByRequest(request).orElse("ProductsByCategory");
+    }
+
+    @PostMapping("/ProductsManagement/DeleteById/{id}")
+    public String deleteProductById(@PathVariable Long id, Model model){
+        productService.deleteProductById(id);
+        return "redirect:/ProductsManagement";
     }
 
 
