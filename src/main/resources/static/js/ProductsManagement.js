@@ -8,3 +8,27 @@ window.onclick = function(event) {
         addProductModal.style.display = "none";
     }
 }
+
+document.getElementById("adminPanelButton").style.display="block";
+document.getElementById("adminPanelButton").style.transition="width 1s, transform 1s";
+document.getElementById("adminPanelButton").style.width="0px";
+document.getElementById("adminPanelButton").style.transform="translateX(0px)";
+
+document.getElementById("openAddProductModalButton").addEventListener("mouseover", mouseOver);
+document.getElementById("openAddProductModalButton").addEventListener("mouseout", mouseOut);
+document.getElementById("adminPanelButton").addEventListener("mouseover", mouseOver);
+document.getElementById("adminPanelButton").addEventListener("mouseout", mouseOut);
+
+function mouseOver(){
+    document.getElementById("adminPanelButton").style.display="block";
+    document.getElementById("adminPanelButton").style.transition="width 1s, transform 1s";
+    document.getElementById("adminPanelButton").style.width="150px";
+    document.getElementById("adminPanelButton").style.transform="translateX(6px)";
+}
+
+function mouseOut(){
+    document.getElementById("adminPanelButton").style.display="block";
+    document.getElementById("adminPanelButton").style.transition="width 1s, transform 1s";
+    document.getElementById("adminPanelButton").style.width="0px";
+    document.getElementById("adminPanelButton").style.transform="translateX(0px)";
+}

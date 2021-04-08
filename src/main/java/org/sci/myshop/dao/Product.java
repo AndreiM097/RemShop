@@ -18,9 +18,10 @@ public class Product {
 
     private String manufacturer;
 
+    private double price;
+
     private String pictureLocation;
 
-    private double price;
 
     public long getProductId() {
       return productId;

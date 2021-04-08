@@ -109,19 +109,6 @@ public class LoginController {
 
             userService.save(admins);
 
-
-
-            User adminsToUpdate = userService.findByUsername(adminUsers[i]);
-
-            User updatedAdmins = new User();
-            updatedAdmins.setUsername(adminUsers[i]);
-            updatedAdmins.setPassword("password");
-            updatedAdmins.setFullName(adminUsers[i]);
-            updatedAdmins.setAddress(adminUsers[i] + "'s " + "address");
-            updatedAdmins.setRole(roles.get(0));
-
-
-            userService.updateUser(adminsToUpdate, updatedAdmins);
         }
 
         for (int i = 1;i <= 5;i++){

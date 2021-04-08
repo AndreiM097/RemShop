@@ -10,6 +10,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +37,9 @@ public class ProductsController {
         List<Product> listProducts = productService.findAllProducts();
         model.addAttribute("listProducts", listProducts);
 
+        Product newProduct = new Product();
+        model.addAttribute("newProduct", newProduct);
+
         return "ProductsManagement";
     }
 
@@ -44,6 +49,16 @@ public class ProductsController {
 
         productService.findAndAddToCartById(id, user);
         return getPreviousPageByRequest(request).orElse("ProductsByCategory");
+    }
+
+    @PostMapping("/ProductsManagement/AddNewProduct")
+    public String addNewProduct(@ModelAttribute("newProduct") Product newProduct, Model model, BindingResult bindingResult){
+
+        model.addAttribute("newProduct", newProduct);
+
+        productService.save(newProduct);
+
+        return "redirect:/ProductsManagement";
     }
 
     @PostMapping("/ProductsManagement/DeleteById/{id}")

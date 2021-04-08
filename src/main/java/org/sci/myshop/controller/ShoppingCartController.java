@@ -8,10 +8,12 @@ import org.sci.myshop.services.ShoppingCartServiceImpl;
 import org.sci.myshop.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,9 +43,9 @@ public class ShoppingCartController {
         return "ShoppingCart";
     }
 
-    @PostMapping("/ShoppingCart/deleteById/{id}")
+    @DeleteMapping("/ShoppingCart/deleteById/{id}")
     public String deleteProductById(@PathVariable Long id, Model model){
         shoppingCartService.deleteProduct(id);
-        return "redirect:/ShoppingCart";
+        return "ShoppingCart";
     }
 }

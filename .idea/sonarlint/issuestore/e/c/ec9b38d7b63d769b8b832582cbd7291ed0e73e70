@@ -1,11 +1,9 @@
 
-]
-java:S46846"@Replace this persistent entity with a simple POJO or DTO object.(¬ùÄ…8Š±›‚/
-f
-java:S1192i"IDefine a constant instead of duplicating this literal "password" 3 times.(»¿˜–8Ç¥ßä/
-Y	java:S125ˆ"<This block of commented-out lines of code should be removed.(‘É¥‡8‰¥‹‚/
 u
-java:S1192¤"RDefine a constant instead of duplicating this literal "Descriere exemplu" 6 times.(éÈˆ ÿÿÿÿÿ8›‹öå/
+java:S1192—"RDefine a constant instead of duplicating this literal "Descriere exemplu" 6 times.(éÈˆ ÿÿÿÿÿ8›‹öå/
 e
 java:S1192:"HDefine a constant instead of duplicating this literal "Welcome" 3 times.(³Íãà8ŸŞ³¬Š/
-Y	java:S125Œ"<This block of commented-out lines of code should be removed.(¿¸ê8éÊ‹‚/
+X	java:S125"<This block of commented-out lines of code should be removed.(¿¸ê8éÊ‹‚/
+]
+java:S46846"@Replace this persistent entity with a simple POJO or DTO object.(¬ùÄ…8Š±›‚/
+X	java:S125{"<This block of commented-out lines of code should be removed.(‘É¥‡8‰¥‹‚/
