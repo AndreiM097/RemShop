@@ -1,9 +1,16 @@
 
-u
-java:S1192—"RDefine a constant instead of duplicating this literal "Descriere exemplu" 6 times.(éÈˆ ÿÿÿÿÿ8›‹öå/
 e
 java:S1192:"HDefine a constant instead of duplicating this literal "Welcome" 3 times.(³Íãà8ŸŞ³¬Š/
-X	java:S125"<This block of commented-out lines of code should be removed.(¿¸ê8éÊ‹‚/
+u
+java:S1192¶"RDefine a constant instead of duplicating this literal "Descriere exemplu" 6 times.(éÈˆ ÿÿÿÿÿ8›‹öå/
 ]
 java:S46846"@Replace this persistent entity with a simple POJO or DTO object.(¬ùÄ…8Š±›‚/
-X	java:S125{"<This block of commented-out lines of code should be removed.(‘É¥‡8‰¥‹‚/
+m
+java:S1192["KDefine a constant instead of duplicating this literal "loggedUser" 5 times.(ˆÿµÆüÿÿÿÿ8Õä¦º‹/
+i
+java:S1192\"LDefine a constant instead of duplicating this literal "EditProfile" 5 times.(‘¼â…8Õä¦º‹/
+j	java:S100Y"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½°·´8Õä¦º‹/
+i	java:S100`"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã™ñ=8Õä¦º‹/
+o	java:S100j"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÅÇŠ¹ıÿÿÿÿ8Õä¦º‹/
+j	java:S100t"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œø±æ8Õä¦º‹/
+j	java:S100~"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›á¡8Õä¦º‹/

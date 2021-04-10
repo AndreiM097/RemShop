@@ -47,7 +47,7 @@
 
                         <a th:href="@{/ProductsManagement}" class = "navBarLinks" role="button" sec:authorize="hasAuthority('ADMIN')" ><i class="fas fa-clipboard-list" style = "color:gold;text-shadow: 0 0 black;"></i>&nbsp;Products management</a>
 
-                        <a class="navBarLinks" role = "button" ><i class="fa fa-user" ></i> &nbsp; Edit profile</a>
+                        <a th:href="@{/EditProfile}" class="navBarLinks" role = "button" ><i class="fa fa-user" ></i> &nbsp; Edit profile</a>
 
                         <a class = "navBarLinks" href="/logout" th:if="${#authorization.expression('isAuthenticated()')}" th:href="@{#}" onclick="$('#form').submit();">
                             <i class="fas fa-sign-out-alt"></i> &nbsp;Logout

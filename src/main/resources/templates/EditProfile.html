@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8">
+    <title>RemShop- Shopping Cart</title>
+    <div th:replace="fragments/header :: header-css"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <link th:href="@{/css/EditProfile.css}" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="cpr" style="background-image:url(https://previews.123rf.com/images/a7880s/a7880s1406/a7880s140600037/29386029-car-service-and-some-types-of-transportation-background-.jpg)";>
+
+    <br><br><br><br><br>
+
+    <div class = "container flex-fill shadow-lg p-3 mb-5" style="background-color: rgba(255, 255, 255, 0.95);; border-radius:25px;overflow:hidden;">
+
+<div th:object="${loggedUser}">
+    <div class = "userCurrentInfo">
+        <h5>Current username: </h5>
+        <h5 th:text="${loggedUser.username}"></h5>
+    </div>
+
+    <div class = "editProfileInput-Container">
+        <form th:action="@{/EditUsername}" th:object="${loggedUser}" method="post">
+            <label class = "labels">Username</label>
+            <input class = "editProfileField" type="text" name="username"/>
+            <button class="editProfileButtons" type="submit">Change username</button>
+        </form>
+    </div>
+
+    <br><br>
+
+    <div class = "userCurrentInfo">
+        <h5>Current name: </h5>
+        <h5 th:text="${loggedUser.fullName}"></h5>
+    </div>
+<!--   ============================ pot sterge toate formurile si sa fac metoda in controller care sa faca toate salvarile odata,la fel si butoanele-->
+    <div class = "editProfileInput-Container">
+        <form th:action="@{/EditFullName}" th:object="${loggedUser}" method="post">
+            <label class = "labels">Full name</label>
+            <input class = "editProfileField" type="text" name="fullname"/>
+            <button class="editProfileButtons" type="submit">Change full name</button>
+        </form>
+    </div>
+
+    <br><br>
+
+    <div class = "userCurrentInfo">
+        <h5>Current address: </h5>
+        <h5 th:text="${loggedUser.address}"></h5>
+    </div>
+
+    <div class = "editProfileInput-Container">
+        <form th:action="@{/EditAddress}" th:object="${loggedUser}" method="post">
+            <label class = "labels">Address</label>
+            <input class = "editProfileField" type="text" name="address" />
+            <button class="editProfileButtons" type="submit">Change address</button>
+        </form>
+    </div>
+
+    <br><br>
+
+    <div class = "userCurrentInfo">
+        <h5>Current email: </h5>
+        <h5 th:text="${loggedUser.email}"></h5>
+    </div>
+
+    <div class = "editProfileInput-Container">
+        <form th:action="@{/EditEmail}" th:object="${loggedUser}" method="post">
+            <label class = "labels">Email</label>
+            <input class = "editProfileField" type="text" name="email" />
+            <button class="editProfileButtons" type="submit">Change email</button>
+        </form>
+    </div>
+
+    <br><br>
+</div>
+
+</div>
+
+        <div th:replace="fragments/footer :: footer"/>
+
+        <script src = "https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity = "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin = "anonymous">
+        </script>
+
+        <!-- Popper -->
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity = "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin = "anonymous">
+        </script>
+
+        <!-- Latest compiled and minified Bootstrap JavaScript -->
+        <script src =" https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity = "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin = "anonymous">
+        </script>
+
+    </div>
+</div>
+</body>
+</html>

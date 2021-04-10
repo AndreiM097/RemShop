@@ -26,6 +26,7 @@
     width: 55px;
     border-radius: 50%;
     box-shadow: 0 0px 20px 0 rgb(0 0 0);
+    transition: transform 1s;
 }
 
 #adminPanelButton{

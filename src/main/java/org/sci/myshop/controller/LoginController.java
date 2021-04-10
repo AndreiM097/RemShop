@@ -8,12 +8,12 @@ import org.sci.myshop.services.interfaces.RolesService;
 import org.sci.myshop.services.interfaces.SecurityService;
 import org.sci.myshop.utils.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletContext;
 import java.util.ArrayList;
@@ -85,6 +85,53 @@ public class LoginController {
             return "Welcome";
         }
 
+        @GetMapping("/EditProfile")
+        public String Profile(Model model, @AuthenticationPrincipal UserDetails currentUser){
+        User loggedUser = userService.findByUsername(currentUser.getUsername());
+        model.addAttribute("loggedUser", loggedUser);
+        return "EditProfile";
+        }
+
+    @PostMapping("/EditUsername")
+    public String EditUsername(@RequestParam(name = "username") String username, Model model, @AuthenticationPrincipal UserDetails currentUser){
+        User loggedUser = userService.findByUsername(currentUser.getUsername());
+        model.addAttribute("loggedUser", loggedUser);
+        User burnerUser = new User();
+        burnerUser.setUsername(username);
+        userService.updateUser(loggedUser, burnerUser);
+        return "EditProfile";
+    }
+
+    @PostMapping("/EditFullName")
+    public String EditFullName(@RequestParam(name = "fullname") String fullname, Model model, @AuthenticationPrincipal UserDetails currentUser){
+        User loggedUser = userService.findByUsername(currentUser.getUsername());
+        model.addAttribute("loggedUser", loggedUser);
+        User burnerUser = new User();
+        burnerUser.setFullName(fullname);
+        userService.updateUser(loggedUser, burnerUser);
+        return "EditProfile";
+    }
+
+    @PostMapping("/EditAddress")
+    public String EditAddress(@RequestParam(name = "address") String address, Model model, @AuthenticationPrincipal UserDetails currentUser){
+        User loggedUser = userService.findByUsername(currentUser.getUsername());
+        model.addAttribute("loggedUser", loggedUser);
+        User burnerUser = new User();
+        burnerUser.setAddress(address);
+        userService.updateUser(loggedUser, burnerUser);
+        return "EditProfile";
+    }
+
+    @PostMapping("/EditEmail")
+    public String EditEmail(@RequestParam(name = "email") String email, Model model, @AuthenticationPrincipal UserDetails currentUser){
+        User loggedUser = userService.findByUsername(currentUser.getUsername());
+        model.addAttribute("loggedUser", loggedUser);
+        User burnerUser = new User();
+        burnerUser.setEmail(email);
+        userService.updateUser(loggedUser, burnerUser);
+        return "EditProfile";
+    }
+
     private void initUsersData(){
         List<Role> roles = new ArrayList<>();
         Role adminRole =new Role();
@@ -108,7 +155,6 @@ public class LoginController {
             admins.setRole(roles.get(0));
 
             userService.save(admins);
-
         }
 
         for (int i = 1;i <= 5;i++){
@@ -120,21 +166,6 @@ public class LoginController {
             fakeUser.setRole(roles.get(1));
             userService.save(fakeUser);
 
-//            ShoppingCartDetails usersShoppingCartDetails = new ShoppingCartDetails();
-//            usersShoppingCartDetails.setUser(fakeUser);
-//            shoppingCartDetailsService.save(usersShoppingCartDetails);
-
-//            User usersToUpdate = userService.findByUsername("User" + i);
-//
-//            User updatedUsers = new User();
-//            updatedUsers.setUsername("User" + i);
-//            updatedUsers.setPassword("password");
-//            updatedUsers.setFullName("Fake User " + i);
-//            updatedUsers.setAddress("Fake Adress " + i);
-//            updatedUsers.setRole(roles.get(1));
-//            updatedUsers.setShoppingCartDetails(usersShoppingCartDetails);
-//
-//            userService.updateUser(usersToUpdate, updatedUsers);
         }
     }
 

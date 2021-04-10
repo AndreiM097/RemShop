@@ -47,10 +47,21 @@ public class UserServiceImpl implements UserService {
     }
 
     public void updateUser(User oldUser, User newUser) {
-        oldUser.setUsername(newUser.getUsername());
-        oldUser.setFullName(newUser.getFullName());
-        oldUser.setAddress(newUser.getAddress());
-        oldUser.setEmail(newUser.getEmail());
-        oldUser.setRole(newUser.getRole());
+        if(newUser.getUsername() != null) {
+            oldUser.setUsername(newUser.getUsername());
+        }
+        if(newUser.getFullName() != null) {
+            oldUser.setFullName(newUser.getFullName());
+        }
+        if(newUser.getAddress() != null) {
+            oldUser.setAddress(newUser.getAddress());
+        }
+        if(newUser.getEmail() != null) {
+            oldUser.setEmail(newUser.getEmail());
+        }
+        if(newUser.getRole() != null) {
+            oldUser.setRole(newUser.getRole());
+        }
+        userRepository.save(oldUser);
     }
 }

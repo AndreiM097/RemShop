@@ -47,33 +47,33 @@
                 <h2 class="addProductModalHeader">Welcome,please complete the required fields to add a new product</h2>
 
                     <div class = "addProductInput-Container">
-                        <label for = "name" class = "labels">Name:</label>
+                        <label for = "name" class = "labels">Name</label>
                         <input name="name" th:field="${newProduct.name}" id = "name" type="text" class="addProductModalField" placeholder="Product name"/>
                     </div>
 
                     <div class = "addProductInput-Container">
-                        <label for = "name" class = "labels">Category:</label>
-                        <input name="category" th:field="${newProduct.category}" type="text" class="addProductModalField" placeholder="Category"/>
+                        <label for = "name" class = "labels">Category</label>
+                        <input name="category" th:field="${newProduct.category}" type="text" class="addProductModalField" placeholder="Category of the product"/>
                     </div>
 
                     <div class = "addProductInput-Container">
-                        <label for = "name" class = "labels">Manufacturer:</label>
-                        <input name="manufacturer" th:field="${newProduct.manufacturer}" type="text" class="addProductModalField" placeholder="Manufacturer"/>
+                        <label for = "name" class = "labels">Manufacturer</label>
+                        <input name="manufacturer" th:field="${newProduct.manufacturer}" type="text" class="addProductModalField" placeholder="Product's manufacturer"/>
                     </div>
 
                     <div class = "addProductInput-Container">
-                        <label for = "name" class = "labels">Price:</label>
-                        <input name="price" th:field="${newProduct.price}" type="number" step="0.00" class="addProductModalField" placeholder="Price" />
+                        <label for = "name" class = "labels">Price</label>
+                        <input name="price" th:field="${newProduct.price}" type="number" step="0.01" class="addProductModalField" placeholder="Set a price" />
                     </div>
 
                     <!-- Add a picture -->
                     <div class = "addProductInput-Container">
-                        <label for = "name" class = "labels">Image:</label>
+                        <label for = "name" class = "labels">Image</label>
                         <input name="pictureLocation" th:field="${newProduct.pictureLocation}" type="text" class="addProductModalField" placeholder="Add a picture by file path"/>
                     </div>
 
                     <div class = "addProductInput-Container-Description">
-                        <label for = "name" class = "labels-Description">Description:</label>
+                        <label for = "name" class = "labels-Description">Description</label>
 <!--                        <input name="description" th:field="${newProduct.description}" type="text" class="addProductModalField-Description" placeholder="Description"/>-->
                         <textarea name="description" th:field="${newProduct.description}" type="text" class="addProductModalField-Description" placeholder="Description"></textarea>
                     </div>

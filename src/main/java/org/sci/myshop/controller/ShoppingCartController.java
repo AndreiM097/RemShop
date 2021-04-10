@@ -43,7 +43,7 @@ public class ShoppingCartController {
         return "ShoppingCart";
     }
 
-    @DeleteMapping("/ShoppingCart/deleteById/{id}")
+    @PostMapping("/ShoppingCart/deleteById/{id}")
     public String deleteProductById(@PathVariable Long id, Model model){
         shoppingCartService.deleteProduct(id);
         return "ShoppingCart";
