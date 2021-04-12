@@ -7,6 +7,7 @@
     <title>RemShop- Shopping Cart</title>
     <div th:replace="fragments/header :: header-css"/>
     <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <link th:href="@{/css/EditProfile.css}" rel="stylesheet"/>
 
 </head>
 
@@ -19,10 +20,10 @@
 
     <br><br><br><br><br>
 
-    <div class="container flex-fill shadow-lg p-3 mb-5  bg-white rounded" >
+    <div class="container flex-fill shadow-lg p-3 mb-5" style="background-color: rgba(255, 255, 255, 0.95);; border-radius:25px;overflow:hidden;">
         <h2>Welcome <span sec:authentication="name">Welcome</span></h2>
         <div class="container">
-            <h3>Results: </h3>
+
             <div class="card mb-3 shadow-lg" id = "productCard" th:each="aProduct : ${listProducts}">
                 <div class="row g-0">
                     <div class="col-md-4">
@@ -53,12 +54,12 @@
                             </div>
                             <div class = "shoppingCartButtons" style = "display:flex; margin:5px;">
                                 <form th:action="@{/ShoppingCart/deleteById/{id}(id=${aProduct.Id})}" th:object="${aProduct}" method="post">
-                                    <button class="btn btn-danger" type="submit" data-target="#productId">Remove</button>
+                                    <button class="btn btn-danger" type="submit" data-target="#productId">Remove</button> &nbsp;
                                 </form>
                                 <!--Add and substract product buttons-->
-                                <button>+</button>
-                                <input type = "text" placeholder="1" value = "1" style = "width:30px; text-align:center;">
-                                <button>-</button>
+                                <h5 style="color: black"></h5>
+                                <label for="quantityInput" class = "labels" style = "width:15%;">Quantity</label>
+                                <input id="quantityInput" type="number" placeholder="1" value = "1">
 
                             </div>
                         </div>
@@ -66,6 +67,7 @@
                 </div>
             </div>
 
+            <button class="editProfileButtons" type="submit">Checkout</button>
 
         </div>
     </div>

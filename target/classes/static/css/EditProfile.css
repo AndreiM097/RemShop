@@ -1,5 +1,9 @@
 .userCurrentInfo{
-display:flex;
+    display:flex;
+}
+
+.currentInfo{
+    margin-left:25px;
 }
 
 .editProfileInput-Container{
@@ -19,17 +23,16 @@ display:flex;
 }
 
 
-.editProfileField{
+.editProfileField {
     box-shadow: 0 4px 16px 0 rgb(0 0 0 / 21%);
     font-weight: 500;
     height: 40px;
     width: 85%;
-    padding: 4px;
-    margin-left: -5px;
+    transform: translate3d(-4px, 1px, 10px);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-
 }
+
 .editProfileField:focus{
     outline:none;
     border: 2px solid dodgerblue;
@@ -64,4 +67,16 @@ display:flex;
 .editProfileField:focus{
     outline:none;
     border: 2px solid dodgerblue;
+}
+
+#quantityInput{
+    text-align: center;
+    width: 60px;
+    height: 40px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#quantityInput:focus{
+outline:none;
 }

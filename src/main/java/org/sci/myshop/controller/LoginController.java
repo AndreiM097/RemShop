@@ -1,5 +1,6 @@
 package org.sci.myshop.controller;
 
+
 import org.sci.myshop.dao.*;
 import org.sci.myshop.services.ProductServiceImpl;
 import org.sci.myshop.services.ShoppingCartServiceImpl;
@@ -16,7 +17,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionContext;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 @Controller
@@ -83,53 +87,62 @@ public class LoginController {
             servletContext.setAttribute("init", true);
         }
             return "Welcome";
+    }
+
+    @GetMapping("/EditProfile")
+    public String editProfile(Model model, @AuthenticationPrincipal UserDetails currentUser){
+    User loggedUser = userService.findByUsername(currentUser.getUsername());
+    model.addAttribute("loggedUser", loggedUser);
+
+    User burnerUser = new User();
+    model.addAttribute("burnerUser", burnerUser);
+
+    return "EditProfile";
+    }
+
+    @PostMapping("/SaveChanges")
+    public String editUsername(@ModelAttribute("burnerUser") User burnerUser, @AuthenticationPrincipal UserDetails currentUser, Model model, HttpSession httpSession){
+        User loggedUser = userService.findByUsername(currentUser.getUsername());
+        model.addAttribute("loggedUser", loggedUser);
+
+        if (loggedUser.getUsername() != burnerUser.getUsername()) {
+
+            burnerUser.setPassword(loggedUser.getPassword());
+            burnerUser.setRole(loggedUser.getRole());
+
+            if(burnerUser.getUsername() == null ||  burnerUser.getUsername().length() < 5) {
+               burnerUser.setUsername(loggedUser.getUsername());
+            }
+            else{
+                loggedUser.setUsername(burnerUser.getUsername());
+            }
+
+            if(burnerUser.getFullName() != null && burnerUser.getFullName().length() >3 ) {
+                loggedUser.setFullName(burnerUser.getFullName());
+            }
+            else{
+                burnerUser.setFullName(loggedUser.getFullName());
+            }
+
+            if(burnerUser.getAddress() != null && burnerUser.getAddress().length() >3 ) {
+                loggedUser.setAddress(burnerUser.getAddress());
+            }
+            else{
+                burnerUser.setAddress(loggedUser.getAddress());
+            }
+
+            if(burnerUser.getEmail() != null && burnerUser.getEmail().length() >3 ) {
+                loggedUser.setEmail(burnerUser.getEmail());
+            }
+            else{
+                burnerUser.setEmail(loggedUser.getEmail());
+            }
+
+            userService.updateUser(loggedUser, burnerUser);
+            httpSession.invalidate();
+
         }
-
-        @GetMapping("/EditProfile")
-        public String Profile(Model model, @AuthenticationPrincipal UserDetails currentUser){
-        User loggedUser = userService.findByUsername(currentUser.getUsername());
-        model.addAttribute("loggedUser", loggedUser);
-        return "EditProfile";
-        }
-
-    @PostMapping("/EditUsername")
-    public String EditUsername(@RequestParam(name = "username") String username, Model model, @AuthenticationPrincipal UserDetails currentUser){
-        User loggedUser = userService.findByUsername(currentUser.getUsername());
-        model.addAttribute("loggedUser", loggedUser);
-        User burnerUser = new User();
-        burnerUser.setUsername(username);
-        userService.updateUser(loggedUser, burnerUser);
-        return "EditProfile";
-    }
-
-    @PostMapping("/EditFullName")
-    public String EditFullName(@RequestParam(name = "fullname") String fullname, Model model, @AuthenticationPrincipal UserDetails currentUser){
-        User loggedUser = userService.findByUsername(currentUser.getUsername());
-        model.addAttribute("loggedUser", loggedUser);
-        User burnerUser = new User();
-        burnerUser.setFullName(fullname);
-        userService.updateUser(loggedUser, burnerUser);
-        return "EditProfile";
-    }
-
-    @PostMapping("/EditAddress")
-    public String EditAddress(@RequestParam(name = "address") String address, Model model, @AuthenticationPrincipal UserDetails currentUser){
-        User loggedUser = userService.findByUsername(currentUser.getUsername());
-        model.addAttribute("loggedUser", loggedUser);
-        User burnerUser = new User();
-        burnerUser.setAddress(address);
-        userService.updateUser(loggedUser, burnerUser);
-        return "EditProfile";
-    }
-
-    @PostMapping("/EditEmail")
-    public String EditEmail(@RequestParam(name = "email") String email, Model model, @AuthenticationPrincipal UserDetails currentUser){
-        User loggedUser = userService.findByUsername(currentUser.getUsername());
-        model.addAttribute("loggedUser", loggedUser);
-        User burnerUser = new User();
-        burnerUser.setEmail(email);
-        userService.updateUser(loggedUser, burnerUser);
-        return "EditProfile";
+        return "redirect:/welcome";
     }
 
     private void initUsersData(){
@@ -151,6 +164,7 @@ public class LoginController {
             admins.setUsername(adminUsers[i]);
             admins.setPassword("password");
             admins.setFullName(adminUsers[i]);
+            admins.setEmail("exemplu@gmail.com");
             admins.setAddress(adminUsers[i] + "'s " + "address");
             admins.setRole(roles.get(0));
 

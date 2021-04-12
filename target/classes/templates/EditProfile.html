@@ -20,70 +20,60 @@
 
     <br><br><br><br><br>
 
-    <div class = "container flex-fill shadow-lg p-3 mb-5" style="background-color: rgba(255, 255, 255, 0.95);; border-radius:25px;overflow:hidden;">
+    <div class = "container flex-fill shadow-lg p-3 mb-5" style="background-color: rgba(255, 255, 255, 0.95);; border-radius:25px;overflow:hidden;" th:object="${loggedUser}">
 
-<div th:object="${loggedUser}">
-    <div class = "userCurrentInfo">
-        <h5>Current username: </h5>
-        <h5 th:text="${loggedUser.username}"></h5>
-    </div>
+        <form th:action="@{/SaveChanges}" th:object="${burnerUser}" method="post">
 
-    <div class = "editProfileInput-Container">
-        <form th:action="@{/EditUsername}" th:object="${loggedUser}" method="post">
-            <label class = "labels">Username</label>
-            <input class = "editProfileField" type="text" name="username"/>
-            <button class="editProfileButtons" type="submit">Change username</button>
+            <div class = "userCurrentInfo">
+                <h5 class = "currentInfo">Current username: </h5>
+                <h5 th:text="${loggedUser.username}"></h5>
+            </div>
+            <div class = "editProfileInput-Container">
+                <label class = "labels">Username</label>
+                <input class = "editProfileField" th:field="${burnerUser.username}" type="text" name="username" placeholder = "..."/>
+            </div>
+
+            <br><br>
+
+            <div class = "userCurrentInfo">
+                <h5 class = "currentInfo">Current name: </h5>
+                <h5 th:text="${loggedUser.fullName}"></h5>
+            </div>
+            <div class = "editProfileInput-Container">
+                <label class = "labels">Full name</label>
+                <input class = "editProfileField" th:field="${burnerUser.fullName}" type="text" name="fullname" placeholder = "..."/>
+            </div>
+
+            <br><br>
+
+            <div class = "userCurrentInfo">
+                <h5 class = "currentInfo">Current address: </h5>
+                <h5 th:text="${loggedUser.address}"></h5>
+            </div>
+            <div class = "editProfileInput-Container">
+                <label class = "labels">Address</label>
+                <input class = "editProfileField" th:field="${burnerUser.address}" type="text" name="address" placeholder = "..."/>
+            </div>
+
+            <br><br>
+
+            <div class = "userCurrentInfo">
+                <h5 class = "currentInfo">Current email: </h5>
+                <h5 th:text="${loggedUser.email}"></h5>
+            </div>
+            <div class = "editProfileInput-Container">
+                <label class = "labels">Email</label>
+                <input class = "editProfileField" th:field="${burnerUser.email}" type="text" name="email" placeholder = "..."/>
+            </div>
+
+            <br><br>
+
+            <div class = "userCurrentInfo">
+                <h5 class = "currentInfo" style = "color:red; font-weight:500"> <i class="fas fa-exclamation-triangle"></i> &nbsp; Pentru ca schimbarile sa aiba efect este necesar sa va autentificati din nou.</h5>
+            </div>
+
+            <button class="editProfileButtons" type="submit">Save changes</button>
         </form>
-    </div>
-
-    <br><br>
-
-    <div class = "userCurrentInfo">
-        <h5>Current name: </h5>
-        <h5 th:text="${loggedUser.fullName}"></h5>
-    </div>
-<!--   ============================ pot sterge toate formurile si sa fac metoda in controller care sa faca toate salvarile odata,la fel si butoanele-->
-    <div class = "editProfileInput-Container">
-        <form th:action="@{/EditFullName}" th:object="${loggedUser}" method="post">
-            <label class = "labels">Full name</label>
-            <input class = "editProfileField" type="text" name="fullname"/>
-            <button class="editProfileButtons" type="submit">Change full name</button>
-        </form>
-    </div>
-
-    <br><br>
-
-    <div class = "userCurrentInfo">
-        <h5>Current address: </h5>
-        <h5 th:text="${loggedUser.address}"></h5>
-    </div>
-
-    <div class = "editProfileInput-Container">
-        <form th:action="@{/EditAddress}" th:object="${loggedUser}" method="post">
-            <label class = "labels">Address</label>
-            <input class = "editProfileField" type="text" name="address" />
-            <button class="editProfileButtons" type="submit">Change address</button>
-        </form>
-    </div>
-
-    <br><br>
-
-    <div class = "userCurrentInfo">
-        <h5>Current email: </h5>
-        <h5 th:text="${loggedUser.email}"></h5>
-    </div>
-
-    <div class = "editProfileInput-Container">
-        <form th:action="@{/EditEmail}" th:object="${loggedUser}" method="post">
-            <label class = "labels">Email</label>
-            <input class = "editProfileField" type="text" name="email" />
-            <button class="editProfileButtons" type="submit">Change email</button>
-        </form>
-    </div>
-
-    <br><br>
-</div>
-
 </div>
 
         <div th:replace="fragments/footer :: footer"/>
